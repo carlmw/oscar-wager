@@ -28,7 +28,9 @@
 </head>
 <body>
 	<header id="mast-head">
-		<h1>Oscar Wager</h1>
+		{% block mast_heading %}
+			<span>Oscar Wager</span>
+		{% endblock %}
 	</header>
 	<div id="content">
 {% block content %}
