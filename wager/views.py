@@ -9,10 +9,11 @@ def index(request):
         wager_form = WagerForm(data=request.POST)
         if wager_form.is_valid():
             wager = wager_form.save()
-            redirect('wager', slug=wager.slug)
+            return redirect('wager', slug=wager.slug)
     else:
         wager_form = WagerForm()
     return render_to_response('index.html', {'wager_form': wager_form}, context_instance=RequestContext(request))
     
 def wager(request, slug):
     wager = get_object_or_404(Wager, slug=slug)
+    return render_to_response('wager.html', {}, context_instance=RequestContext(request))
