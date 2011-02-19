@@ -38,6 +38,9 @@ TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
 ROOT_URLCONF = 'urls'
 
+MEDIA_ROOT =  os.path.join(os.path.dirname(__file__), 'Oscar Wager/static')
+MEDIA_URL = '/static/'
+
 # Activate django-dbindexer if available
 try:
     import dbindexer

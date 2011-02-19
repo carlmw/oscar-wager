@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ wager.name }}</h1>
+<div class="instructions">
+	<p>Make your prediction for the following category:</p>
+</div>
+<section class="picker">
+	<h1>Best Picture</h1>
+	<form method="post">
+		<ul>
+			<li>
+				<label>
+					<input type="radio" name="winner" />
+					<strong>Black Swan</strong>
+					<span>Mike Medavoy, Brian Oliver and Scott Franklin</span>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="radio" name="winner" />
+					<strong>The Fighter</strong>
+					<span>David Hoberman, Todd Lieberman and Mark Wahlberg</span>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="radio" name="winner" />
+					<strong>Inception</strong>
+					<span>Emma Thomas and Christopher Nolan</span>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="radio" name="winner" />
+					<strong>The Kids Are All Right</strong>
+					<span>Gary Gilbert, Jeffrey Levy-Hinte and Celine Rattray</span>
+				</label>
+			</li>
+			
+			<li>
+				<label>
+					<input type="radio" name="winner" />
+					<strong>The Kings Speech</strong>
+					<span>Iain Canning, Emile Sherman and Gareth Unwin</span>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="radio" name="winner" />
+					<strong>127 Hours</strong>
+					<span>Christian Colson, Danny Boyle and John Smithson</span>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="radio" name="winner" />
+					<strong>The Social Network</strong>
+					<span>Scott Rudin, Dana Brunetti, Michael De Luca and Ceán Chaffin</span>
+				</label>
+			</li>
+		</ul>
+		<button type="submit">Next</button>
+	</form>
+</section>
+{% endblock %}
