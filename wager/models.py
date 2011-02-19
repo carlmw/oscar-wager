@@ -1,3 +1,6 @@
+import urllib, urllib2
+import simplejson
+
 from django.db import models
 from django.template.defaultfilters import slugify
 
@@ -26,6 +29,16 @@ class Entry(models.Model):
     name = models.CharField(max_length=50)
     award = models.ForeignKey(Award)
     reference = models.CharField(max_length=50, null=True)
+    
+    def getPoster(self):
+        url  = 'http://www.imdbapi.com/?t='
+        req  = urllib2.Request(url + self.name)
+        conn = urllib2.urlopen(req)
+        try:
+            resp = simplejson.loads(conn.read())
+        finally:
+            conn.close()
+        return resp['Poster']
     
 class Pick(models.Model):
     """Pick model detailing the selection of votes made against a user for a """
