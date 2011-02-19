@@ -1,36 +1,37 @@
-from google.appengine.ext import db
+from django.db import models
+from autoslug import AutoSlugField
 
-class Wager(db.Model):
+class Wager(models.Model):
     """Wager model detailing the agreement of participants"""    
     
-    name = db.StringProperty(required=True)
-    stub = db.StringProperty(required=True)
-    details = db.StringProperty(multiline=True, required=True)
-    created = db.DateTimeProperty(auto_now_add=True)
+    name = models.CharField(max_length=50)
+    details = models.TextField()
+    slug = AutoSlugField(populate_from=lambda instance: instance.name,
+                         unique=True,
+                         slugify=lambda value: value.replace(' ','-'))
     
-class User(db.User):
+class User(models.Model):
     """User model detailing the name and email address of the users in a wager"""
 
-    name = db.StringProperty(required=True)
-    email = db.EmailProperty()
-    wager = db.ReferenceProperty(Wager)
+    name = models.CharField(max_length=50)
+    wager = models.ForeignKey(Wager)
 
-class Award(db.Model):
+class Award(models.Model):
     """Award model detailing the name of the award"""
     
-    name = db.StringProperty(required=True)
+    name = models.CharField(max_length=50)
     
-class Entry(db.Model):
+class Entry(models.Model):
     """Entry model detailing the name of the entry(film, actor) 
        and a reference of where/why nominated(film, director)"""
     
-    name = db.StringProperty(required=True)
-    award = db.ReferenceProperty(Award)
-    reference = db.StringProperty(max_length=255, null=True)
+    name = models.CharField(max_length=50)
+    award = models.ForeignKey(Award)
+    reference = models.CharField(max_length=50, null=True)
     
-class Vote(db.Model):
+class Vote(models.Model):
     """Vote model detailing the selection of votes made against a user for a """
     
-    entry = db.ReferenceProperty(Entry)
-    wager = db.ReferenceProperty(Wager)
-    user = db.ReferenceProperty (User)
+    entry = models.ForeignKey(Entry)
+    wager = models.Foreignkey(Wager)
+    user = models.ForeignKey(User)
