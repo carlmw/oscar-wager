@@ -19,8 +19,7 @@ def wager(request, slug):
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
         if user_form.is_valid():
-            user = user_form.save()
-            user.wager = wager
+            user = User.objects.create(name=user_form.cleaned_data['name'], email=user_form.cleaned_data['email'], wager=wager)
             user.save()
             return redirect('pick', slug=wager.slug)
     else:
