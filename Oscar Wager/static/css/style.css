@@ -266,6 +266,11 @@ label{
 .actions{
 	padding-top:20px;
 }
+form .errors{
+	margin:0;
+	list-style-type:none;
+	color:#dd0000;
+}
 /* FIELDS */
 input[type=text], input[type=email]{
 	border:0;

@@ -11,7 +11,7 @@
 			<input type="text" name="name" placeholder="Give it a name your friends will recognise" />
 		</label>
 		{% if wager_form.name.errors %}
-		<ul>
+		<ul class="errors">
 		    {% for error in wager_form.name.errors %}
 		    <li>{{ error|escape }}</li>
 		    {% endfor %}
