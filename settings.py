@@ -13,6 +13,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.sessions',
     'djangotoolbox',
+    'wager',
 
     # djangoappengine should come last, so it can override a few manage.py commands
     'djangoappengine',
