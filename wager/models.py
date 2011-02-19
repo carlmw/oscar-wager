@@ -1,4 +1,4 @@
-import urllib, urllib2
+import google.appengine.api.urlfetch
 import simplejson
 
 from django.db import models
@@ -32,7 +32,7 @@ class Entry(models.Model):
     
     def getPoster(self):
         url  = 'http://www.imdbapi.com/?t='
-        req  = urllib2.Request(url + self.name)
+        req  = urllib2.Request(url + self.name + '&' + str(self.reference))
         conn = urllib2.urlopen(req)
         try:
             resp = simplejson.loads(conn.read())
