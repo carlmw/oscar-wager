@@ -16,4 +16,4 @@ def index(request):
     
 def wager(request, slug):
     wager = get_object_or_404(Wager, slug=slug)
-    return render_to_response('wager.html', {}, context_instance=RequestContext(request))
+    return render_to_response('wager.html', {'wager': wager}, context_instance=RequestContext(request))
