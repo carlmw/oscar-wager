@@ -1,9 +1,14 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 class Wager(models.Model):
     """Wager model detailing the agreement of participants"""        
     name = models.CharField(max_length=50, unique=True)
-    slug = models.CharField(max_length=50, unique=True)
+    slug = models.CharField(max_length=50, db_index=True, unique=True)
+    
+    def save(self):
+        self.slug = slugify(self.name)
+        super(Wager, self).save()
     
 class User(models.Model):
     """User model detailing the name and email address of the users in a wager"""
