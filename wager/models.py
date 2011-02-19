@@ -4,7 +4,7 @@ from django.template.defaultfilters import slugify
 class Wager(models.Model):
     """Wager model detailing the agreement of participants"""        
     name = models.CharField(max_length=50, unique=True)
-    slug = models.CharField(max_length=50, db_index=True)
+    slug = models.CharField(max_length=50, db_index=True, unique=True)
     
     def save(self):
         self.slug = slugify(self.name)
