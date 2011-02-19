@@ -5,3 +5,4 @@ from wager.models import Wager
 class WagerForm(ModelForm):
     class Meta:
         model = Wager
+        fields = ('name',)
