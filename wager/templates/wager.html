@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ wager.name }}</h1>
+<section>
+	<h1>Invite a friend</h1>
+	<div class="instructions">
+		<p>Send your friends a link to this page and they'll be able to enter your wager!</p>
+	</div>
+	<a href="/{{ wager.slug }}" class="slug">http://localhost:8000/{{ wager.slug }}/</a>
+</section>
+<section>
+	<h1>Enter the wager</h1>
+	<div class="instructions">
+		<p>After entering your name you'll be asked to make your predictions for the winners in the 24 award categories.</p>
+	</div>
+	<form method="post" action="/{{ wager.slug }}/pick">
+		<label>
+			<span>Your name <strong>(required)</strong></span>
+			<input type="text" name="name" />
+		</label>
+		<label>
+			<span>Your email address <strong>(required)</strong></span>
+			<input type="text" name="email" />
+		</label>
+		<button type="submit">Pick your winners</button>
+	</form>
+</section>
+{% endblock %}

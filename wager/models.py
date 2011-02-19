@@ -13,6 +13,7 @@ class Wager(models.Model):
 class User(models.Model):
     """User model detailing the name and email address of the users in a wager"""
     name = models.CharField(max_length=50)
+    email = models.CharField(max_length=320)
     wager = models.ForeignKey(Wager)
 
 class Award(models.Model):
@@ -26,8 +27,8 @@ class Entry(models.Model):
     award = models.ForeignKey(Award)
     reference = models.CharField(max_length=50, null=True)
     
-class Vote(models.Model):
-    """Vote model detailing the selection of votes made against a user for a """
+class Pick(models.Model):
+    """Pick model detailing the selection of votes made against a user for a """
     entry = models.ForeignKey(Entry)
     wager = models.ForeignKey(Wager)
     user = models.ForeignKey(User)
