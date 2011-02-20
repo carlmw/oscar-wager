@@ -1,8 +1,12 @@
-import simplejson, urllib, urllib2
+import simplejson, urllib, urllib2, uuid
 
 from django.db import models
 from django.core.cache import cache
 from django.template.defaultfilters import slugify
+
+def generate_token():
+    """ Genereates unique token hash."""
+    return uuid.uuid4().bytes.encode('base64').replace('+', '').replace('/', '').strip('=\n')[:4]
 
 class Wager(models.Model):
     """Wager model detailing the agreement of participants."""        
@@ -19,6 +23,7 @@ class User(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=320)
     slug = models.SlugField(db_index=True)
+    hash = models.CharField(max_length=4, default=generate_token)
     wager = models.ForeignKey(Wager)
     
     class Meta:
