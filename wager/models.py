@@ -46,7 +46,7 @@ class Entry(models.Model):
     
     def getPoster(self):
         """Retrieves the poster image for the entry film."""
-        data = entry_cache_get(self.name)
+        data = entry_cache_get(self.name, self.reference)
         return data[0]['posters'][3]['image']['url'] if len(data) > 0 and data[0].has_key('posters') and len(data[0]['posters']) > 2 else ''
 
 class Pick(models.Model):
@@ -59,7 +59,7 @@ def entry_cache_key(name):
     """ Builds a key for caching an entry."""
     return slugify(name)+"entry"
 
-def entry_cache_get(name):
+def entry_cache_get(name, reference):
     """ Gets a key for caching an entry."""
     c_key = entry_cache_key(name)
     entry = cache.get(c_key)
@@ -72,5 +72,12 @@ def entry_cache_get(name):
             entry = simplejson.loads(conn.read())
         finally:
             conn.close()
+        if len(entry) == 0:
+            ref = urllib.quote(reference.encode("utf-8"))
+            conn = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s' % (url, key, ref))
+            try:
+                entry = simplejson.loads(conn.read())
+            finally:
+                conn.close()
         cache.set(c_key, entry, 85000)
     return entry
