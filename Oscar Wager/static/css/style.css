@@ -282,6 +282,26 @@ form .errors{
 	list-style-type:none;
 	color:#dd0000;
 }
+#overview ul{
+	margin:0;
+	list-style-type:none;
+}
+#overview li{
+	float:left;
+	width:340px;
+	margin-right:20px;
+	margin-bottom:20px;
+}
+#overview li strong, #overview span{
+	display:block;
+}
+.info i{
+	font-style:normal;
+	color:yellow;
+}
+#page-footer{
+	clear:both;
+}
 /* FIELDS */
 input[type=text], input[type=email], .slug{
 	color:#000;
