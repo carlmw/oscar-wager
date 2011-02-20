@@ -7,4 +7,4 @@
 	$('.picker form').change(function(){
 		$(this).submit();
 	})
-})(jQuery)
+})(jQuery);
