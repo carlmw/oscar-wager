@@ -45,6 +45,6 @@ The Oscar Wager team""" % (user.name, user.slug, settings.ROOT_URL, user.wager.s
     
 def pick(request, wager_slug, user_slug):
     wager = get_object_or_404(Wager, slug=wager_slug)
-    user = get_object_or_404(User, slug=user_slug)
+    user = get_object_or_404(User, slug=user_slug, wager=wager)
     entries = Entry.objects.all()
     return render_to_response('pick.html', {'wager': wager, 'user': user, 'entries': entries}, context_instance=RequestContext(request))
