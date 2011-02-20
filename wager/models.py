@@ -55,4 +55,4 @@ class Pick(models.Model):
     """Pick model detailing the selection of votes made against a user for a """
     entry = models.ForeignKey(Entry)
     wager = models.ForeignKey(Wager)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, related_name='picks')

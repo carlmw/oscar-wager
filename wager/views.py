@@ -46,7 +46,11 @@ The Oscar Wager team""" % (user.name, user.slug, settings.ROOT_URL, user.wager.s
 def pick(request, wager_slug, user_slug):
     wager = get_object_or_404(Wager, slug=wager_slug)
     user = get_object_or_404(User, slug=user_slug, wager=wager)
-    award = Award.objects.all()[0]
+    awards = set(Award.objects.all())
+    picks = user.picks.all()
+    picked_awards = set([pick.entry.award for pick in picks])
+    not_picked_awards = awards - picked_awards
+    award = list(not_picked_awards)[0]
     entries = award.entries.all()
     pick_form = PickForm()
     if request.method == 'POST':
