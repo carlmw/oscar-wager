@@ -1,7 +1,7 @@
 import csv
 import simplejson as json
 
-reader = csv.reader(open('oscar-data.csv', 'rU'), delimiter=',', quoting=csv.QUOTE_NONE)
+reader = csv.reader(open('oscar-data.csv', 'rU'), delimiter=',', quoting=csv.QUOTE_NONE, quotechar='"')
 
 count = 0
 def uniqify(old):

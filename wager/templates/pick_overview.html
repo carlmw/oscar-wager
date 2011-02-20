@@ -5,16 +5,19 @@
 {% endblock %}
 
 {% block content %}
-<p>These are your selections. Good luck, have fun and don't eat yellow snow.</p>
-<ul>
-    {% for pick in picks %}
-	<li>
-	    <h2>{{ pick.entry.award.name }}</h2>
-		<strong>{{ pick.entry.name }}</strong>
-		{% if pick.entry.reference %}
-		<span>{{ pick.entry.reference }}</span>
-		{% endif %}
-	</li>
-	{% endfor %}
-</ul>
+<h1>You're done!</h1>
+<div class="info">
+	<p>Good luck, have fun and don't eat yellow <i>snow</i>.</p>
+</div>
+<section>
+	<h1>Your picks</h1>
+	<dl>
+	    {% for pick in picks %}
+		<dt>{{ pick.entry.award.name }}</dt>
+		<dd>
+			<strong>{{ pick.entry.name }}</strong>
+		</dd>
+		{% endfor %}
+	</dl>
+</section>
 {% endblock %}

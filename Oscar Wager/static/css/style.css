@@ -282,6 +282,13 @@ form .errors{
 	list-style-type:none;
 	color:#dd0000;
 }
+dd{
+	margin-bottom:20px;
+}
+.info i{
+	font-style:normal;
+	color:yellow;
+}
 /* FIELDS */
 input[type=text], input[type=email], .slug{
 	color:#000;
