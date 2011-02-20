@@ -14,12 +14,12 @@ Award {{ picked_total }} out of {{ awards_total }}
 			<li>
 				<label>
 					<input type="radio" name="winner" value="{{ entry.id }}" />
+					<img src="{% firstof entry.getPoster 'http://www.prwatch.org/files/images/oscar-statue.jpg' %}" width="100" />
 					<strong>{{ entry.name }}</strong>
 					{% if entry.reference %}
 					<span>{{ entry.reference }}</span>
 					{% endif %}
 				</label>
-				<img src="{% firstof entry.getPoster 'http://www.prwatch.org/files/images/oscar-statue.jpg' %}" width="100" />
 			</li>
 			{% endfor %}
 		</ul>
@@ -32,7 +32,9 @@ Award {{ picked_total }} out of {{ awards_total }}
 		    {% endfor %}
 		</ul>
 		{% endif %}
-		<button type="submit">Next</button>
+		<div class="actions">
+			<button type="submit">Next</button>
+		</div>
 	</form>
 </section>
 {% endblock %}
