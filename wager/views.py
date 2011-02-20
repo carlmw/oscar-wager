@@ -24,7 +24,7 @@ def wager(request, slug):
         if user_form.is_valid():
             user = User(name=user_form.cleaned_data['name'], email=user_form.cleaned_data['email'], wager=wager)
             user.save()
-            mail.send_mail(sender="Oscar Wager <oscarwager@oscarwager.net",
+            mail.send_mail(sender="Oscar Wager Team <team@oscar-wager.appspotmail.com>",
                            to="%s" % user.email,
                            subject="Oscar Wager - %s" % user.wager.name,
                            body="""

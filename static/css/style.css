@@ -282,6 +282,26 @@ form .errors{
 	list-style-type:none;
 	color:#dd0000;
 }
+#overview ul{
+	margin:0;
+	list-style-type:none;
+}
+#overview li{
+	float:left;
+	width:340px;
+	margin-right:20px;
+	margin-bottom:20px;
+}
+#overview li strong, #overview span{
+	display:block;
+}
+.info i{
+	font-style:normal;
+	color:yellow;
+}
+#page-footer{
+	clear:both;
+}
 /* FIELDS */
 input[type=text], input[type=email], .slug{
 	color:#000;
@@ -374,8 +394,16 @@ a.twitter{
 }
 
 /* PICKER */
-.picker h1{
+.picker header{
 	margin-bottom:20px;
+}
+.picker h2{
+	width:580px;
+	font-size:18px;
+}
+.picker h2 b{
+	font-size:16px;
+	font-weight:normal;
 }
 .picker form{
 	padding-top:20px;
@@ -389,11 +417,12 @@ a.twitter{
 	font-size:14px;
 	color:#bbb;
 }
-/*.picker input{
+.js .picker input{
     position:absolute;
     left:-9999px;
-}*/
+}
 .picker li{
+	min-height:100px;
 	clear:left;
 }
 .picker img{
@@ -463,8 +492,22 @@ a.twitter{
 /* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
    Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
 @media screen and (max-device-width: 480px) {
-  
-  
+  #mast-head h1{
+	font-size:2em;
+	line-height:40px;
+	background-size:auto 80%;
+	padding-left:40px;
+  }
+body{
+	padding:10px;
+}
+  form{
+	width:85%;
+  }
+  input[type=text], input[type=email]{
+	width:100%;
+  }
+}
   /* Prevent iOS, WinMobile from adjusting font size */
   html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
 }

@@ -20,13 +20,15 @@
   {% block css %}
   {% endblock %}
 
-  <script src="/static/js/modernizr-1.5.min.js"></script>
   {% block preload_js %}
   {% endblock %}
 
   {% block extra-head %}{% endblock %}
 </head>
 <body>
+	<script>
+	document.documentElement.className = document.documentElement.className.replace('no-js', 'js')
+	</script>
 	<header id="mast-head">
 		{% block mast_heading %}
 			<a href="/">Oscar Wager</a>
@@ -39,6 +41,7 @@
     <footer id="page-footer">
 		<p class="disclaimer">This site is not associated with or endorsed by The Academy of Motion Picture Arts and Sciences.</p>
     </footer>
+	<script src="/static/js/jquery-1.4.2.min.js"></script>
 {% block js %}
 {% endblock %}
 </body>
