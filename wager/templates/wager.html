@@ -4,6 +4,9 @@
 
 {% block content %}
 <h1>{{ wager.name }}</h1>
+{% if wager.description %}
+<p>{{ wager.description }}</p>
+{% endif %}
 <section id="invite">
 	<h1>Invite a friend</h1>
 	<div class="instructions">
@@ -48,15 +51,15 @@
 		{% endif %}
 		<button type="submit">Pick your winners</button>
 	</form>
+    {% if users %}
 	<div id="users">
     	<h2>People in this wager</h2>
-        {% if users %}
     	<ul id="users">
             {% for user in users %}
             <li>{{ user.name }}</li>
             {% endfor %}
     	</ul>
-    	{% endif %}
     </div>
+	{% endif %}
 </section>
 {% endblock %}

@@ -5,7 +5,7 @@ from wager.models import Wager, User, Pick
 class WagerForm(ModelForm):
     class Meta:
         model = Wager
-        fields = ('name',)
+        fields = ('name', 'description',)
         
 class UserForm(ModelForm):
     class Meta:
