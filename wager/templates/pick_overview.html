@@ -13,6 +13,7 @@
 	<ul>
 	    {% for pick in picks %}
 		<li>
+		    <img src="{% firstof pick.entry.getPoster '/static/images/oscar-statue.png' %}" width="100" />
 			<span>{{ pick.entry.award.name }}</span>
 			<strong>{{ pick.entry.name }}</strong>
 		</li>
