@@ -52,5 +52,5 @@ def pick(request, wager_slug, user_slug):
     if request.method == 'POST':
         pick_form = PickForm(data={'user': user.id, 'wager': wager.id, 'entry': request.POST.get('winner')})
         if pick_form.is_valid():
-            pass
+            pick_form.save()
     return render_to_response('pick.html', {'wager': wager, 'user': user, 'award': award, 'entries': entries, 'pick_form': pick_form}, context_instance=RequestContext(request))
