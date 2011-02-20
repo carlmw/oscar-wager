@@ -37,7 +37,7 @@ Choose your films wisely young Padawan and eat your greens.
 Here's the link to your Oscar wager: http://%s/%s/pick/%s/
 
 Thanks,
-The Oscar Wager team""" % (user.name, user.slug, settings.ROOT_URL, user.wager.slug))
+The Oscar Wager team""" % (user.name, settings.ROOT_URL, user.wager.slug, user.slug))
             return redirect('pick', wager_slug=wager.slug, user_slug=user.slug)
     else:
         user_form = UserForm()
