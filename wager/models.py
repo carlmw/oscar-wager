@@ -16,7 +16,7 @@ class Wager(models.Model):
 class User(models.Model):
     """User model detailing the name and email address of the users in a wager"""
     name = models.CharField(max_length=50)
-    email = models.CharField(max_length=320)
+    email = models.EmailField(max_length=320)
     slug = models.CharField(max_length=50, db_index=True, unique=True)
     wager = models.ForeignKey(Wager)
     
