@@ -492,8 +492,22 @@ a.twitter{
 /* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
    Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
 @media screen and (max-device-width: 480px) {
-  
-  
+  #mast-head h1{
+	font-size:2em;
+	line-height:40px;
+	background-size:auto 80%;
+	padding-left:40px;
+  }
+body{
+	padding:10px;
+}
+  form{
+	width:85%;
+  }
+  input[type=text], input[type=email]{
+	width:100%;
+  }
+}
   /* Prevent iOS, WinMobile from adjusting font size */
   html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
 }
