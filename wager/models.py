@@ -41,6 +41,7 @@ class Entry(models.Model):
     """Entry model detailing the name of the entry(film, actor) 
        and a reference of where/why nominated(film, director)."""
     name = models.CharField(max_length=50)
+    type = models.CharField(max_length=50)
     award = models.ForeignKey(Award, related_name='entries')
     reference = models.CharField(max_length=50, null=True)
     
@@ -63,18 +64,18 @@ def entry_cache_get(name, reference):
     """ Gets a key for caching an entry."""
     c_key = entry_cache_key(name)
     entry = cache.get(c_key)
-    if entry == None:
+    if entry != None:
         url = 'http://api.themoviedb.org'
         key = '31978081436f3021d35a3275c385491b'
         title = urllib.quote(name.encode("utf-8"))
-        conn  = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s' % (url, key, title))
+        conn  = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s+2010' % (url, key, title))
         try:
             entry = simplejson.loads(conn.read())
         finally:
             conn.close()
         if len(entry) == 0:
             ref = urllib.quote(reference.encode("utf-8"))
-            conn = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s' % (url, key, ref))
+            conn = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s+2010' % (url, key, ref))
             try:
                 entry = simplejson.loads(conn.read())
             finally:
