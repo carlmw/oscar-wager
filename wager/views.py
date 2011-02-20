@@ -53,7 +53,7 @@ def pick(request, wager_slug, user_slug):
     if len(not_picked_awards) == 0:
         return render_to_response('pick_overview.html', {'wager': wager, 'user': user, 'picks': picks})
     else:
-        award = not_picked_awards
+        award = not_picked_awards[0]
         entries = award.entries.all()
         pick_form = PickForm()
         if request.method == 'POST':
