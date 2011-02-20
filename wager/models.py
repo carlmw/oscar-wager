@@ -42,7 +42,7 @@ class Entry(models.Model):
     def getPoster(self):
         """Retrieves the poster image for the entry film."""
         data = entry_cache_get(self.name)
-        return data[0]['posters'][3]['image']['url'] if data[0].has_key('posters') else ''
+        return data[0]['posters'][3]['image']['url'] if len(data) > 0 and data[0].has_key('posters') and len(data[0]['posters']) > 2 else ''
 
 class Pick(models.Model):
     """Pick model detailing the selection of votes made against a user for a wager."""
