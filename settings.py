@@ -37,7 +37,7 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
 ROOT_URLCONF = 'urls'
-ROOT_URL = 'oscar-wager.appspot.com'
+ROOT_URL = 'www.oscar-wager.com'
 
 MEDIA_ROOT =  os.path.join(os.path.dirname(__file__), 'Oscar Wager/static')
 MEDIA_URL = '/static/'
