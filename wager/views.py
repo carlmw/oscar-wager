@@ -32,7 +32,7 @@ Hi %s,
 
 You've signed up to be part of an awesome Oscar wager!
 
-Choose your films wisely young padawan and eat your greens.
+Choose your films wisely young Padawan and eat your greens.
 
 Here's the link to your Oscar wager: http://%s/%s/pick/
 
