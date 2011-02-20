@@ -21,17 +21,6 @@
 		    {% endfor %}
 	    </ul>
 		{% endif %}
-		<label>
-	        <span>What is this wager about?</span>
-	        <textarea name="description"></textarea>
-	    </label>
-	    {% if wager_form.description.errors %}
-	    <ul class="errors">
-	        {% for error  in wager_form.descriptions.errors %}
-	        <li>{{ error|escape }}</li>
-	        {% endfor %}
-	    </ul>
-	    {% endif %}
 		<div class="actions">
 			<button type="submit">Start your wager</button>
 		</div>
