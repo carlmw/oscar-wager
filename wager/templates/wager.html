@@ -7,7 +7,11 @@
 	<div class="instructions">
 		<p>Send your friends a link to this page and they'll be able to enter your wager!</p>
 	</div>
-	<a href="/{{ wager.slug }}" class="slug">http://{{ ROOT_URL }}/{{ wager.slug }}/</a>
+	<div class="slug">http://{{ ROOT_URL }}/{{ wager.slug }}/</div>
+	<nav>
+		<a title="Copy to clipboard" href="#" class="copy button">Copy to clipboard</span></a>
+		<a title="Share on Twitter" href="http://twitter.com?status=Join%20my%20Oscar%20wager!%20http://localhost:8000/{{ wager.slug }}" class="twitter button">Share <span class="visuallyhidden">it on twitter</span></a>
+	</nav>
 </section>
 <section>
 	<h1>Enter the wager</h1>
