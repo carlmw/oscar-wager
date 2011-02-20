@@ -5,9 +5,11 @@
 <div class="instructions">
 	<p>Make your prediction for the following category:</p>
 </div>
-Award {{ picked_total }} out of {{ awards_total }}
 <section class="picker">
-	<h1>{{ award.name }}</h1>
+	<header>
+		<h1>{{ award.name }}</h1>
+		<h2><b>Category</b> {{ picked_total }} <b>of</b> {{ awards_total }}</h2>
+	</header>
 	<form method="post">
 		<ul>
 		    {% for entry in entries %}

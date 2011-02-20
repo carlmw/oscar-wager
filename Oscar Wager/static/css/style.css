@@ -394,8 +394,16 @@ a.twitter{
 }
 
 /* PICKER */
-.picker h1{
+.picker header{
 	margin-bottom:20px;
+}
+.picker h2{
+	width:580px;
+	font-size:18px;
+}
+.picker h2 b{
+	font-size:16px;
+	font-weight:normal;
 }
 .picker form{
 	padding-top:20px;
