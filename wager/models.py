@@ -17,7 +17,12 @@ class User(models.Model):
     """User model detailing the name and email address of the users in a wager"""
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=320)
+    slug = models.CharField(max_length=50, db_index=True, unique=True)
     wager = models.ForeignKey(Wager)
+    
+    def save(self):
+        self.slug = slugify(self.name)
+        super(User, self).save()
 
 class Award(models.Model):
     """Award model detailing the name of the award"""    
