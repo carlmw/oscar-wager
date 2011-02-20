@@ -49,12 +49,15 @@ def pick(request, wager_slug, user_slug):
     awards = set(Award.objects.all())
     picks = user.picks.all()
     picked_awards = set([pick.entry.award for pick in picks])
-    not_picked_awards = awards - picked_awards
-    award = list(not_picked_awards)[0]
-    entries = award.entries.all()
-    pick_form = PickForm()
-    if request.method == 'POST':
-        pick_form = PickForm(data={'user': user.id, 'wager': wager.id, 'entry': request.POST.get('winner')})
-        if pick_form.is_valid():
-            pick_form.save()
-    return render_to_response('pick.html', {'wager': wager, 'user': user, 'award': award, 'entries': entries, 'pick_form': pick_form}, context_instance=RequestContext(request))
+    not_picked_awards = list(awards - picked_awards)
+    if len(not_picked_awards) == 0:
+        return render_to_response('pick_overview.html', {'wager': wager, 'user': user, 'picks': picks})
+    else:
+        award = not_picked_awards
+        entries = award.entries.all()
+        pick_form = PickForm()
+        if request.method == 'POST':
+            pick_form = PickForm(data={'user': user.id, 'wager': wager.id, 'entry': request.POST.get('winner')})
+            if pick_form.is_valid():
+                pick_form.save()
+        return render_to_response('pick.html', {'wager': wager, 'user': user, 'award': award, 'entries': entries, 'pick_form': pick_form}, context_instance=RequestContext(request))
