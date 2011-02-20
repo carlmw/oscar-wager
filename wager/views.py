@@ -68,4 +68,4 @@ def pick(request, wager_slug, user_slug):
                 else:
                     award = not_picked_awards[0]
                     entries = award.entries.all()
-        return render_to_response('pick.html', {'wager': wager, 'user': user, 'award': award, 'entries': entries, 'pick_form': pick_form}, context_instance=RequestContext(request))
+        return render_to_response('pick.html', {'wager': wager, 'user': user, 'award': award, 'entries': entries, 'pick_form': pick_form, 'awards_total': len(awards), 'picked_total': len(picked_awards) + 1}, context_instance=RequestContext(request))
