@@ -1,5 +1,8 @@
+from google.appengine.api import mail
+
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
+from django.conf import settings
 
 from wager.forms import WagerForm, UserForm
 from wager.models import Wager, User
@@ -21,10 +24,24 @@ def wager(request, slug):
         if user_form.is_valid():
             user = User.objects.create(name=user_form.cleaned_data['name'], email=user_form.cleaned_data['email'], wager=wager)
             user.save()
+            mail.send_mail(sender="Oscar Wager <oscarwager@oscarwager.net",
+                           to="%s" % user.email,
+                           subject="Oscar Wager - %s" % user.wager.name,
+                           body="""
+Hi %s,
+
+You've signed up to be part of an awesome Oscar wager!
+
+Choose your films wisely young padawan and eat your greens.
+
+Here's the link to your Oscar wager: http://%s/%s/pick/
+
+Thanks,
+The Oscar Wager team""" % (user.name, settings.ROOT_URL, user.wager.slug))
             return redirect('pick', slug=wager.slug)
     else:
         user_form = UserForm()
-    return render_to_response('wager.html', {'wager': wager, 'user_form': user_form}, context_instance=RequestContext(request))
+    return render_to_response('wager.html', {'wager': wager, 'user_form': user_form, 'ROOT_URL': settings.ROOT_URL}, context_instance=RequestContext(request))
     
 def pick(request, slug):
     wager = get_object_or_404(Wager, slug=slug)
