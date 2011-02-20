@@ -12,6 +12,7 @@ class Wager(models.Model):
     """Wager model detailing the agreement of participants."""        
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(db_index=True, unique=True)
+    description = models.CharField(max_length=255, null=True, blank=True)
     
     def save(self):
         """Override save to slugify the name to form the URL."""
@@ -24,7 +25,7 @@ class User(models.Model):
     email = models.EmailField(max_length=320)
     slug = models.SlugField(db_index=True)
     hash = models.CharField(max_length=4, default=generate_token)
-    wager = models.ForeignKey(Wager)
+    wager = models.ForeignKey(Wager, related_name='users')
     
     class Meta:
         unique_together = ('name', 'email', 'wager')

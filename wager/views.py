@@ -19,6 +19,7 @@ def index(request):
     
 def wager(request, slug):
     wager = get_object_or_404(Wager, slug=slug)
+    users = wager.users.all()
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
         if user_form.is_valid():
@@ -41,7 +42,7 @@ The Oscar Wager team""" % (user.name, settings.ROOT_URL, user.wager.slug, user.s
             return redirect('pick', wager_slug=wager.slug, user_slug=user.slug, user_hash=user.hash)
     else:
         user_form = UserForm()
-    return render_to_response('wager.html', {'wager': wager, 'user_form': user_form, 'ROOT_URL': settings.ROOT_URL}, context_instance=RequestContext(request))
+    return render_to_response('wager.html', {'wager': wager, 'user_form': user_form, 'ROOT_URL': settings.ROOT_URL, 'users': users}, context_instance=RequestContext(request))
     
 def pick(request, wager_slug, user_slug, user_hash):
     wager = get_object_or_404(Wager, slug=wager_slug)
