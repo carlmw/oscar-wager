@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block mast_heading %}
+	<h1>Oscar Wager</h1>
+{% endblock %}
+
+{% block content %}
+<p>These are your selections. Good luck, have fun and don't eat yellow snow.</p>
+<ul>
+    {% for pick in picks %}
+	<li>
+	    <h2>{{ pick.entry.award.name }}</h2>
+		<strong>{{ pick.entry.name }}</strong>
+		{% if pick.entry.reference %}
+		<span>{{ pick.entry.reference }}</span>
+		{% endif %}
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}
