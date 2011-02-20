@@ -259,6 +259,8 @@ form{
 	border-radius:8px;
 	padding:24px 20px;
 	-webkit-box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	-mox-box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
 }
 label, label span{
 	display:block;
@@ -288,8 +290,11 @@ input[type=text], input[type=email], .slug{
 	padding:9px;
 	margin-left:-9px;
 	width:533px;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
 	border-radius:8px;
 	-webkit-box-shadow:2px 2px 0 #000, inset 1px 1px 3px rgba(0,0,0,0.6);
+	-moz-box-shadow:2px 2px 0 #000, inset 1px 1px 3px rgba(0,0,0,0.6);
 }
 .slug{
 	display:inline-block;
@@ -304,15 +309,21 @@ button{
 	font-size:1em;
 	margin-left:-8px;
 	color:#fff;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
 	border-radius:8px;
 	text-shadow:2px 1px 0 rgba(0,0,0,0.2);
 	background-image:-webkit-gradient(linear, 0 100%, 0 0, color-stop(0.3, rgba(0,0,0,0.1)), color-stop(0.7, rgba(0,0,0,0)));
 	-webkit-box-shadow:2px 2px 0 #000, inset 0 0 2px rgba(0,0,0,0.6);
+	-moz-box-shadow:2px 2px 0 #000, inset 0 0 2px rgba(0,0,0,0.6);
+	box-shadow:2px 2px 0 #000, inset 0 0 2px rgba(0,0,0,0.6);
 	text-transform:uppercase;
 }
 button:hover{
 	border-color:#ffc200;
 	-webkit-transition:0.2s ease-in border-color;
+	-moz-transition:0.2s ease-in border-color;
+	transition:0.2s ease-in border-color;
 }
 button:active{
 	position:relative;
@@ -327,16 +338,23 @@ a:link{
 a:hover{
 	color:#5bb4e5;
 	-webkit-transition:0.2s ease-in color;
+	-moz-transition:0.2s ease-in color;
+	transition:0.2s ease-in color;
 }
 nav{
 	line-height:40px;
 }
 a.button{
 	font-size:1em;
+	line-height:1em;
 	color:#fff;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
 	border-radius:8px;
 	text-shadow:1px 1px 0 rgba(0,0,0,0.2);
 	-webkit-box-shadow:2px 2px 0 #000, inset 0 0 2px rgba(0,0,0,0.8);
+	-moz-box-shadow:2px 2px 0 #000, inset 0 0 2px rgba(0,0,0,0.8);
+	box-shadow:2px 2px 0 #000, inset 0 0 2px rgba(0,0,0,0.8);
 	text-transform:lowercase;
 	text-decoration:none;
 	color:#fff;
@@ -354,6 +372,9 @@ a.twitter{
 }
 
 /* PICKER */
+.picker h1{
+	margin-bottom:20px;
+}
 .picker form{
 	padding-top:20px;
 }
@@ -361,10 +382,40 @@ a.twitter{
 	list-style-type:none;
 	margin:0;
 }
-
-
-
-
+.picker label span{
+	font-style:italic;
+	font-size:14px;
+	color:#bbb;
+}
+/*.picker input{
+    position:absolute;
+    left:-9999px;
+}*/
+.picker li{
+	clear:left;
+}
+.picker img{
+	height:83px;
+	width:66px;
+	float:left;
+	margin-right:20px;
+	margin-bottom:20px;
+	-webkit-box-shadow:2px 2px 2px rgba(0,0,0,0.4);
+	-moz-box-shadow:2px 2px 2px rgba(0,0,0,0.4);
+	box-shadow:2px 2px 2px rgba(0,0,0,0.4);
+}
+.picker li button{
+	border-size:1px;
+	font-size:0.8em;
+	padding:4px 4px 4px 18px;
+	margin-left:-4px;
+	background-image:url(/static/images/tick.png);
+	background-repeat:no-repeat;
+	background-position:4px center;
+}
+.disclaimer{
+	color:#666;
+}
 /* 
  * print styles
  * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 

@@ -10,7 +10,7 @@
 	<div class="slug">http://{{ ROOT_URL }}/{{ wager.slug }}/</div>
 	<nav>
 		<a title="Copy to clipboard" href="#" class="copy button">Copy to clipboard</span></a>
-		<a title="Share on Twitter" href="http://twitter.com?status=Join%20my%20Oscar%20wager!%20http://localhost:8000/{{ wager.slug }}" class="twitter button">Share <span class="visuallyhidden">it on twitter</span></a>
+		<a title="Share on Twitter" href="http://twitter.com/share?url=http%3A%2F%2F{{ ROOT_URL }}%2F{{ wager.slug }}%2F&amp;text=Join%20my%20Oscar%20wager!" class="twitter button">Share <span class="visuallyhidden">it on twitter</span></a>
 	</nav>
 </section>
 <section>
@@ -23,10 +23,28 @@
 			<span>Your name <strong>(required)</strong></span>
 			<input type="text" name="name" />
 		</label>
+		{% if user_form.name.errors %}
+		<ul class="errors">
+		    {% for error in user_form.name.errors %}
+		    <li>
+		        {{ error|escape}}
+		    </li>
+		    {% endfor %}
+		</ul>
+		{% endif %}
 		<label>
 			<span>Your email address <strong>(required)</strong></span>
 			<input type="text" name="email" />
 		</label>
+		{% if user_form.email.errors %}
+		<ul class="errors">
+		    {% for error in user_form.email.errors %}
+		    <li>
+		        {{ error|escape}}
+		    </li>
+		    {% endfor %}
+		</ul>
+		{% endif %}
 		<button type="submit">Pick your winners</button>
 	</form>
 </section>

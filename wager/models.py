@@ -1,4 +1,3 @@
-import google.appengine.api.urlfetch
 import simplejson, urllib, urllib2
 
 from django.db import models
@@ -8,7 +7,7 @@ from django.template.defaultfilters import slugify
 class Wager(models.Model):
     """Wager model detailing the agreement of participants."""        
     name = models.CharField(max_length=50, unique=True)
-    slug = models.CharField(max_length=50, db_index=True, unique=True)
+    slug = models.SlugField(db_index=True, unique=True)
     
     def save(self):
         """Override save to slugify the name to form the URL."""
@@ -18,8 +17,16 @@ class Wager(models.Model):
 class User(models.Model):
     """User model detailing the name and email address of the users in a wager."""
     name = models.CharField(max_length=50)
-    email = models.CharField(max_length=320)
+    email = models.EmailField(max_length=320)
+    slug = models.SlugField(db_index=True)
     wager = models.ForeignKey(Wager)
+    
+    class Meta:
+        unique_together = ('name', 'email', 'wager')
+    
+    def save(self):
+        self.slug = slugify(self.name)
+        super(User, self).save()
 
 class Award(models.Model):
     """Award model detailing the name of the award."""    
@@ -29,7 +36,7 @@ class Entry(models.Model):
     """Entry model detailing the name of the entry(film, actor) 
        and a reference of where/why nominated(film, director)."""
     name = models.CharField(max_length=50)
-    award = models.ForeignKey(Award)
+    award = models.ForeignKey(Award, related_name='entries')
     reference = models.CharField(max_length=50, null=True)
     
     def getPoster(self):
