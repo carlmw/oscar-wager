@@ -57,7 +57,7 @@ def pick(request, wager_slug, user_slug, user_hash):
     picked_awards = set([pick.entry.award for pick in picks])
     not_picked_awards = list(awards - picked_awards)
     if len(not_picked_awards) == 0:
-        return render_to_response('pick_overview.html', {'wager': wager, 'user': user, 'picks': picks})
+        return render_to_response('pick_overview.html', {'wager': wager, 'user': user, 'picks': picks, 'ROOT_URL': settings.ROOT_URL})
         
     award = not_picked_awards[0]
     entries = award.entries.all()
