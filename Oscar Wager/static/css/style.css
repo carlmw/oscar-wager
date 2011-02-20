@@ -382,11 +382,14 @@ a.twitter{
 	margin-bottom:20px;
 	-webkit-box-shadow:2px 2px 2px rgba(0,0,0,0.4);
 }
-.picker button{
+.picker li button{
 	border-size:1px;
 	font-size:0.8em;
-	padding:4px;
+	padding:4px 4px 4px 18px;
 	margin-left:-4px;
+	background-image:url(/static/images/tick.png);
+	background-repeat:no-repeat;
+	background-position:4px center;
 }
 
 /* 
