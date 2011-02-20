@@ -34,7 +34,7 @@ You've signed up to be part of an awesome Oscar wager!
 
 Choose your films wisely young Padawan and eat your greens.
 
-Here's the link to your Oscar wager: http://%s/%s/pick/%s/%s/
+Here's the link to your Oscar wager: http://%s/%s/pick/%s/%s/ (keep this secret!).
 
 Thanks,
 The Oscar Wager team""" % (user.name, settings.ROOT_URL, user.wager.slug, user.slug, user.hash))
