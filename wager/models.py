@@ -17,8 +17,11 @@ class User(models.Model):
     """User model detailing the name and email address of the users in a wager"""
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=320)
-    slug = models.SlugField(db_index=True, unique=True)
+    slug = models.SlugField(db_index=True)
     wager = models.ForeignKey(Wager)
+    
+    class Meta:
+        unique_together = ('name', 'email', 'wager')
     
     def save(self):
         self.slug = slugify(self.name)
