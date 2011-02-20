@@ -16,7 +16,7 @@
 					<strong>{{ entry.name }}</strong>
 					<span>{{ entry.reference }}</span>
 				</label>
-				<img src="{{ entry.getPoster }}" width="100">
+				<img src="{% firstof entry.getPoster 'http://www.prwatch.org/files/images/oscar-statue.jpg' %}" width="100" />
 			</li>
 			{% endfor %}
 		</ul>
