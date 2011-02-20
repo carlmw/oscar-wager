@@ -64,7 +64,7 @@ def entry_cache_get(name, reference):
     """ Gets a key for caching an entry."""
     c_key = entry_cache_key(name)
     entry = cache.get(c_key)
-    if entry != None:
+    if entry == None:
         url = 'http://api.themoviedb.org'
         key = '31978081436f3021d35a3275c385491b'
         title = urllib.quote(name.encode("utf-8"))
