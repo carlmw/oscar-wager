@@ -21,6 +21,15 @@
 			</li>
 			{% endfor %}
 		</ul>
+		{% if pick_form.entry.errors %}
+		<ul>
+		    {% for error in pick_form.entry.errors %}
+		    <li class="errors">
+		        {{ error|escape }}
+		    </li>
+		    {% endfor %}
+		</ul>
+		{% endif %}
 		<button type="submit">Next</button>
 	</form>
 </section>

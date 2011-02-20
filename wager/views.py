@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
 from django.conf import settings
 
-from wager.forms import WagerForm, UserForm
+from wager.forms import WagerForm, UserForm, PickForm
 from wager.models import Wager, User, Entry, Award
 
 def index(request):
@@ -48,4 +48,9 @@ def pick(request, wager_slug, user_slug):
     user = get_object_or_404(User, slug=user_slug, wager=wager)
     award = Award.objects.all()[0]
     entries = award.entries.all()
-    return render_to_response('pick.html', {'wager': wager, 'user': user, 'award': award, 'entries': entries}, context_instance=RequestContext(request))
+    pick_form = PickForm()
+    if request.method == 'POST':
+        pick_form = PickForm(data={'user': user.id, 'wager': wager.id, 'entry': request.POST.get('winner')})
+        if pick_form.is_valid():
+            pick_form.save()
+    return render_to_response('pick.html', {'wager': wager, 'user': user, 'award': award, 'entries': entries, 'pick_form': pick_form}, context_instance=RequestContext(request))
