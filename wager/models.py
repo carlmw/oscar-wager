@@ -32,14 +32,14 @@ class Entry(models.Model):
     """Entry model detailing the name of the entry(film, actor) 
        and a reference of where/why nominated(film, director)"""
     name = models.CharField(max_length=50)
-    award = models.ForeignKey(Award)
+    award = models.ForeignKey(Award, related_name='entries')
     reference = models.CharField(max_length=50, null=True)
     
     def getPoster(self):
         """Retrieves the poster image for the entry film"""
         url  = 'http://www.imdbapi.com/'
         data = urllib.urlencode({'t': str(self.name)})
-        req  = urllib2.Request(url + '?' + data)
+        req  = urllib2.request(url + '?' + data)
         conn = urllib2.urlopen(req)
         try:
             resp = simplejson.loads(conn.read())

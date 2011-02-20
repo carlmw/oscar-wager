@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.conf import settings
 
 from wager.forms import WagerForm, UserForm
-from wager.models import Wager, User, Entry
+from wager.models import Wager, User, Entry, Award
 
 def index(request):
     if request.method == 'POST':
@@ -46,5 +46,6 @@ The Oscar Wager team""" % (user.name, user.slug, settings.ROOT_URL, user.wager.s
 def pick(request, wager_slug, user_slug):
     wager = get_object_or_404(Wager, slug=wager_slug)
     user = get_object_or_404(User, slug=user_slug, wager=wager)
-    entries = Entry.objects.all()
-    return render_to_response('pick.html', {'wager': wager, 'user': user, 'entries': entries}, context_instance=RequestContext(request))
+    award = Award.objects.all()[0]
+    entries = award.entries.all()
+    return render_to_response('pick.html', {'wager': wager, 'user': user, 'award': award, 'entries': entries}, context_instance=RequestContext(request))

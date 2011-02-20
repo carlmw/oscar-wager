@@ -6,7 +6,7 @@
 	<p>Make your prediction for the following category:</p>
 </div>
 <section class="picker">
-	<h1>Best Picture</h1>
+	<h1>{{ award.name }}</h1>
 	<form method="post">
 		<ul>
 		    {% for entry in entries %}
@@ -14,9 +14,10 @@
 				<label>
 					<input type="radio" name="winner" value="{{ entry.id }}" />
 					<strong>{{ entry.name }}</strong>
+					{% if entry.reference %}
 					<span>{{ entry.reference }}</span>
+					{% endif %}
 				</label>
-				<img src="{{ entry.getPoster }}" width="100">
 			</li>
 			{% endfor %}
 		</ul>
