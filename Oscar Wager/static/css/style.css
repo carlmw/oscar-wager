@@ -261,6 +261,7 @@ form{
 	-webkit-box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
 	-mox-box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
 	box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	background-color:rgba(0,0,0,0.1);
 }
 label, label span{
 	display:block;
