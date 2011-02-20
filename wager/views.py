@@ -22,7 +22,7 @@ def wager(request, slug):
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
         if user_form.is_valid():
-            user = User.objects.create(name=user_form.cleaned_data['name'], email=user_form.cleaned_data['email'], wager=wager)
+            user = User(name=user_form.cleaned_data['name'], email=user_form.cleaned_data['email'], wager=wager)
             user.save()
             mail.send_mail(sender="Oscar Wager <oscarwager@oscarwager.net",
                            to="%s" % user.email,
@@ -34,16 +34,17 @@ You've signed up to be part of an awesome Oscar wager!
 
 Choose your films wisely young Padawan and eat your greens.
 
-Here's the link to your Oscar wager: http://%s/%s/pick/
+Here's the link to your Oscar wager: http://%s/%s/pick/%s/
 
 Thanks,
-The Oscar Wager team""" % (user.name, settings.ROOT_URL, user.wager.slug))
-            return redirect('pick', slug=wager.slug)
+The Oscar Wager team""" % (user.name, user.slug, settings.ROOT_URL, user.wager.slug))
+            return redirect('pick', wager_slug=wager.slug, user_slug=user.slug)
     else:
         user_form = UserForm()
     return render_to_response('wager.html', {'wager': wager, 'user_form': user_form, 'ROOT_URL': settings.ROOT_URL}, context_instance=RequestContext(request))
     
-def pick(request, slug):
-    wager = get_object_or_404(Wager, slug=slug)
+def pick(request, wager_slug, user_slug):
+    wager = get_object_or_404(Wager, slug=wager_slug)
+    user = get_object_or_404(User, slug=user_slug, wager=wager)
     entries = Entry.objects.all()
-    return render_to_response('pick.html', {'wager': wager, 'entries': entries}, context_instance=RequestContext(request))
+    return render_to_response('pick.html', {'wager': wager, 'user': user, 'entries': entries}, context_instance=RequestContext(request))
