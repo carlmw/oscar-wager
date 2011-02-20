@@ -4,12 +4,16 @@ runtime: python
 api_version: 1
 
 builtins:
-- remote_api: off
+- remote_api: on
 
 inbound_services:
 - warmup
 
 handlers:
+- url: /remote_api
+  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
+  login: admin
+    
 - url: /_ah/queue/deferred
   script: djangoappengine/deferred/handler.py
   login: admin
