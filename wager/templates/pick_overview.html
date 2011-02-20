@@ -9,14 +9,14 @@
 <div class="info">
 	<p>Good luck, have fun and don't eat yellow <i>snow</i>.</p>
 </div>
-<section>
+<section id="overview">
 	<h1>Your picks</h1>
-	<dl>
+	<ul>
 	    {% for pick in picks %}
-		<dt>{{ pick.entry.award.name }}</dt>
-		<dd>
+		<li>
+			<span>{{ pick.entry.award.name }}</span>
 			<strong>{{ pick.entry.name }}</strong>
-		</dd>
+		</li>
 		{% endfor %}
 	</dl>
 </section>
