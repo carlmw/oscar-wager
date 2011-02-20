@@ -1,5 +1,4 @@
-import google.appengine.api.urlfetch
-import simplejson, urllib, urllib2
+import simplejson, urllib, urllib2, google.appengine.api.urlfetch
 
 from django.db import models
 from django.template.defaultfilters import slugify
