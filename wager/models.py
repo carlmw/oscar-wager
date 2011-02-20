@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 class Wager(models.Model):
     """Wager model detailing the agreement of participants"""        
     name = models.CharField(max_length=50, unique=True)
-    slug = models.CharField(max_length=50, db_index=True, unique=True)
+    slug = models.SlugField(db_index=True, unique=True)
     
     def save(self):
         """Override save to slugify the name to form the URL"""
@@ -17,7 +17,7 @@ class User(models.Model):
     """User model detailing the name and email address of the users in a wager"""
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=320)
-    slug = models.CharField(max_length=50, db_index=True, unique=True)
+    slug = models.SlugField(db_index=True, unique=True)
     wager = models.ForeignKey(Wager)
     
     def save(self):
