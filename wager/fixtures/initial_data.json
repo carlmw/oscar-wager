@@ -1,0 +1,10 @@
+[
+{"pk": 1, "model": "wager.Award", "fields": {"name": "Best Picture"}},
+{"pk": 1, "model": "wager.Entry", "fields": {"name": "Black Swan", "award": 1, "reference": "Mike Medavoy, Brian Oliver and Scott Franklin"}},
+{"pk": 2, "model": "wager.Entry", "fields": {"name": "The Fighter", "award": 1, "reference": "David Hoberman, Todd Lieberman and Mark Wahlberg"}},
+{"pk": 3, "model": "wager.Entry", "fields": {"name": "Inception", "award": 1, "reference": "Emma Thomas and Christopher Nolan"}},
+{"pk": 4, "model": "wager.Entry", "fields": {"name": "The Kids Are All Right", "award": 1, "reference": "Gary Gilbert, Jeffrey Levy-Hinte and Celine Rattray"}},
+{"pk": 5, "model": "wager.Entry", "fields": {"name": "The Kings Speech", "award": 1, "reference": "Iain Canning, Emile Sherman and Gareth Unwin"}},
+{"pk": 6, "model": "wager.Entry", "fields": {"name": "127 Hours", "award": 1, "reference": "Christian Colson, Danny Boyle and John Smithson"}},
+{"pk": 7, "model": "wager.Entry", "fields": {"name": "The Social Network", "award": 1, "reference": "Scott Rudin, Dana Brunetti, Michael De Luca and Ceán Chaffin"}}
+]

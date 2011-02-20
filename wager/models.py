@@ -1,5 +1,5 @@
 import google.appengine.api.urlfetch
-import simplejson
+import simplejson, urllib, urllib2
 
 from django.db import models
 from django.template.defaultfilters import slugify
@@ -10,6 +10,7 @@ class Wager(models.Model):
     slug = models.CharField(max_length=50, db_index=True, unique=True)
     
     def save(self):
+        """Override save to slugify the name to form the URL"""
         self.slug = slugify(self.name)
         super(Wager, self).save()
     
@@ -31,15 +32,18 @@ class Entry(models.Model):
     reference = models.CharField(max_length=50, null=True)
     
     def getPoster(self):
-        url  = 'http://www.imdbapi.com/?t='
-        req  = urllib2.Request(url + self.name + '&' + str(self.reference))
+        """Retrieves the poster image for the entry film"""
+        url  = 'http://www.imdbapi.com/'
+        data = urllib.urlencode({'t': str(self.name)})
+        req  = urllib2.Request(url + '?' + data)
         conn = urllib2.urlopen(req)
         try:
             resp = simplejson.loads(conn.read())
         finally:
             conn.close()
-        return resp['Poster']
-    
+        if resp.has_key('Poster'):
+            return resp['Poster']
+
 class Pick(models.Model):
     """Pick model detailing the selection of votes made against a user for a """
     entry = models.ForeignKey(Entry)

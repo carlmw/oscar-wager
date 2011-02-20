@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
 
 from wager.forms import WagerForm, UserForm
-from wager.models import Wager, User
+from wager.models import Wager, User, Entry
 
 def index(request):
     if request.method == 'POST':
@@ -28,4 +28,5 @@ def wager(request, slug):
     
 def pick(request, slug):
     wager = get_object_or_404(Wager, slug=slug)
-    return render_to_response('pick.html', {'wager': wager}, context_instance=RequestContext(request))
+    entries = Entry.objects.all()
+    return render_to_response('pick.html', {'wager': wager, 'entries': entries}, context_instance=RequestContext(request))
