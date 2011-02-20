@@ -366,10 +366,14 @@ a:hover{
 nav{
 	line-height:40px;
 }
-a.button{
+a.button, button.button{
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	box-sizing:content-box;
 	font-size:1em;
 	line-height:1em;
 	color:#fff;
+	border:0;
 	-webkit-border-radius:8px;
 	-moz-border-radius:8px;
 	border-radius:8px;
@@ -380,16 +384,17 @@ a.button{
 	text-transform:lowercase;
 	text-decoration:none;
 	color:#fff;
+	margin:0;
 	padding:4px 8px 4px 32px;
 	background-repeat:no-repeat;
 	background-position:8px center;
 }
-a.copy{
+button.copy{
 	background-color:#111;
 	background-image:url(/static/images/copy.png)
 }
 a.twitter{
-	background-color:#57d5ff;
+	background-color:#46aacc;
 	background-image:url(/static/images/twitter.png);
 }
 
