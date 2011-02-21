@@ -52,9 +52,9 @@
 	    <ol>
 	        {% for award, pick in user_picks %}
 	        <li>
-	            <img src="{% firstof pick.getPoster '/static/images/oscar-statue.png' %}" width="100" />
-	    		<span>{{ award.name }}</span>
-	    		<strong>{{ pick.name }}</strong>
+                <img src="{% firstof pick.getPoster '/static/images/oscar-statue.png' %}" width="100" />
+        		<span>{{ award.name }}</span>
+        		<strong>{{ pick.name }}</strong>
 	    	</li>
 	        {% endfor %}
 	    </ol>

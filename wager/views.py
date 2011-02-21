@@ -44,7 +44,7 @@ The Oscar Wager team""" % (user.name, settings.ROOT_URL, user.wager.slug, user.s
         user_form = UserForm()
     return render_to_response('wager.html', {'wager': wager, 'user_form': user_form, 'ROOT_URL': settings.ROOT_URL, 'users': users}, context_instance=RequestContext(request))
     
-def pick(request, wager_slug, user_slug, user_hash):
+def pick(request, wager_slug, user_slug, user_hash, pick_id=None):
     wager = get_object_or_404(Wager, slug=wager_slug)
     user = get_object_or_404(User, slug=user_slug, hash=user_hash, wager=wager)
     awards = set(Award.objects.all())

@@ -107,3 +107,30 @@ class Pick(models.Model):
     
     class Meta:
         unique_together = ('entry', 'wager', 'user',)
+    
+def entry_cache_key(name):
+    """ Builds a key for caching an entry."""
+    return slugify(name)+"entry"
+
+def entry_cache_get(name, reference):
+    """ Gets a key for caching an entry."""
+    c_key = entry_cache_key(name)
+    entry = cache.get(c_key)
+    if entry == None:
+        url = 'http://api.themoviedb.org'
+        key = '31978081436f3021d35a3275c385491b'
+        title = urllib.quote(name.encode("utf-8"))
+        conn  = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s+2010' % (url, key, title))
+        try:
+            entry = simplejson.loads(conn.read())
+        finally:
+            conn.close()
+        if entry == [u'Nothing found.']:
+            ref = urllib.quote(reference.encode("utf-8"))
+            conn = urllib2.urlopen('%s/2.1/Person.search/en/json/%s/%s' % (url, key, title))
+            try:
+                entry = simplejson.loads(conn.read())
+            finally:
+                conn.close()
+        cache.set(c_key, entry, 85000)
+    return entry
