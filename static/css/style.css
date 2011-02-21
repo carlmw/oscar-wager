@@ -269,6 +269,12 @@ label, label span{
 label span{
 	margin-bottom:8px;
 }
+label em{
+	display:block;
+	margin-bottom:8px;
+	font-size:smaller;
+	color:#999;
+}
 label{
 	margin-bottom:9px;
 	cursor:pointer;
@@ -492,6 +498,13 @@ p{
 	-moz-box-shadow:2px 2px 2px rgba(0,0,0,0.4);
 	box-shadow:2px 2px 2px rgba(0,0,0,0.4);
 	margin-bottom:20px;
+}
+.complete{
+	font-size:1.4em;
+	line-height:1.4;
+}
+.next-step{
+	font-weight:bold;
 }
 /* 
  * print styles
