@@ -51,15 +51,5 @@
 		{% endif %}
 		<button type="submit">Pick your winners</button>
 	</form>
-    {% if users %}
-	<div id="users">
-    	<h2>People in this wager</h2>
-    	<ul id="users">
-            {% for user in users %}
-            <li>{{ user.name }}</li>
-            {% endfor %}
-    	</ul>
-    </div>
-	{% endif %}
 </section>
 {% endblock %}
