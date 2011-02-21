@@ -12,7 +12,8 @@
 	<form method="post">
 		<label>
 			<span>Name your wager <strong>(required)</strong></span>
-			<input type="text" name="name" placeholder="Give it a name your friends will recognise" />
+			<em>Give it a name your friends will recognise</em>
+			<input type="text" name="name" placeholder="E.g. Initech Office Wager" />
 		</label>
 		{% if wager_form.name.errors %}
 		<ul class="errors">

@@ -285,12 +285,18 @@ form .errors{
 #overview ul{
 	margin:0;
 	list-style-type:none;
+	float:left;
 }
 #overview li{
-	float:left;
 	width:340px;
+	float:left;
 	margin-right:20px;
 	margin-bottom:20px;
+}
+#overview li img{
+	float:left;
+	width:30px;
+	margin-right:1ex;
 }
 #overview li strong, #overview span{
 	display:block;
@@ -459,11 +465,9 @@ p{
 	width:536px;
 }
 /* USER LIST */
-#users ul{
+#users ul, #overview ul{
 	list-style:none;
 	margin:1em 0 0;
-	font-size:1.4em;
-	line-height:48px;
 	border:2px solid #666;
 	border-radius:8px;
 	padding:24px 20px 0;
@@ -472,6 +476,10 @@ p{
 	box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
 	background-color:rgba(0,0,0,0.1);
 	width:536px;
+}
+#users ul{
+	font-size:1.4em;
+	line-height:48px;
 }
 #users li{
 	clear:left;
