@@ -200,11 +200,9 @@ button {  width: auto; overflow: visible; }
  /* Primary Styles
     Author: 
  */
-html{
+body{
 	background-color:#000;
 	background:url(/static/images/bg.png) center top;
-}
-body{
 	font-family:proxima-nova-condensed-1,proxima-nova-condensed-2,helvetica,arial,sans-serif;
 	font-size:18px;
 	line-height:20px;
