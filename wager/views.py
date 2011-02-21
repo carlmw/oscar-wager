@@ -61,4 +61,14 @@ def pick(request, wager_slug, user_slug, user_hash, pick_id=None):
         return render_to_response('pick_overview.html', {'wager': wager, 'user': user, 'picks': picks})
     award = not_picked_awards[0]
     entries = award.entries.all()
-    return render_to_response('pick.html', {'wager': wager, 'user': user, 'award': award, 'entries': entries, 'pick_form': pick_form, 'awards_total': len(awards), 'picked_total': len(picked_awards) + 1, 'user_picks': user_picks, 'not_picked_awards': not_picked_awards[1:]}, context_instance=RequestContext(request))
+    entries[0].getCachedEntry()
+    context = {'wager': wager,
+                'user': user,
+                'award': award,
+                'entries': entries,
+                'pick_form': pick_form,
+                'awards_total': len(awards),
+                'picked_total': len(picked_awards) + 1,
+                'user_picks': user_picks,
+                'not_picked_awards': not_picked_awards[1:]}
+    return render_to_response('pick.html', context, context_instance=RequestContext(request))

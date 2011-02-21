@@ -22,7 +22,7 @@
 			<li>
 				<label>
 					<input type="radio" name="winner" value="{{ entry.id }}" />
-					<img src="{% firstof entry.getPoster '/static/images/oscar-statue.png' %}" width="100" />
+					<img src="{% firstof entry.getPoster '/static/images/oscar-statue.png' %}" />
 					<strong>{{ entry.name }}</strong>
 					{% if entry.reference %}
 					<span>{{ entry.reference }}</span>
