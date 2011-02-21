@@ -17,6 +17,23 @@
 		<a title="Share on Twitter" href="http://twitter.com/share?url=http%3A%2F%2F{{ ROOT_URL }}%2F{{ wager.slug }}%2F&amp;text=Join%20my%20Oscar%20wager!" class="twitter button">Share <span class="visuallyhidden">it on twitter</span></a>
 	</nav>
 </section>
+<section id="users">
+	<h1>Who's in?</h1>
+	{% if not users %}
+	<p>It looks like no one has joined your wager yet! You can invite them by sending them the link below!</p>
+	{% endif %}
+	{% if users %}
+		<ul id="users">
+	        {% for user in users %}
+	        <li class="vcard">
+				<img src="{{ user.gravatar_url }}" />
+				<span class="fn">{{ user.name }}</span>
+			</li>
+	        {% endfor %}
+		</ul>
+	</section>
+	{% endif %}
+</section>
 <section id="wager">
 	<h1>Enter the wager</h1>
 	<div class="instructions">
@@ -25,7 +42,7 @@
 	<form method="post">
 		<label>
 			<span>Your name <strong>(required)</strong></span>
-			<input type="text" name="name" />
+			<input type="text" name="name" placeholder="E.g. Charlie Chaplin"/>
 		</label>
 		{% if user_form.name.errors %}
 		<ul class="errors">
@@ -38,7 +55,7 @@
 		{% endif %}
 		<label>
 			<span>Your email address <strong>(required)</strong></span>
-			<input type="text" name="email" />
+			<input type="text" name="email" placeholder="E.g. charlie@chaplin.com" />
 		</label>
 		{% if user_form.email.errors %}
 		<ul class="errors">
@@ -51,15 +68,5 @@
 		{% endif %}
 		<button type="submit">Pick your winners</button>
 	</form>
-    {% if users %}
-	<div id="users">
-    	<h2>People in this wager</h2>
-    	<ul id="users">
-            {% for user in users %}
-            <li>{{ user.name }}</li>
-            {% endfor %}
-    	</ul>
-    </div>
-	{% endif %}
 </section>
 {% endblock %}
