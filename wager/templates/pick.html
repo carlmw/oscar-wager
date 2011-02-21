@@ -45,4 +45,26 @@
 		</div>
 	</form>
 </section>
+<section class="picks">
+    {% if user_picks %}
+    Previous categories
+    <ol>
+        {% for award, pick in user_picks %}
+        <li>
+            <img src="{% firstof pick.getPoster '/static/images/oscar-statue.png' %}" width="100" />
+    		<span>{{ award.name }}</span>
+    		<strong>{{ pick.name }}</strong>
+    	</li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    {% if not_picked_awards %}
+    Next categories
+    <ol>
+        {% for not_picked_award in not_picked_awards %}
+        <li>{{ not_picked_award.name }}</li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+</section>
 {% endblock %}
