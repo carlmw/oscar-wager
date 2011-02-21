@@ -84,14 +84,14 @@ class Entry(models.Model):
                 entry = simplejson.loads(conn.read())
             finally:
                 conn.close()
-            if entry[0] == 'Nothing found.':
+            if entry == [u'Nothing found.']:
                 ref = urllib.quote(self.reference.encode("utf-8"))
                 conn = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s+2010' % (url, key, ref))
                 try:
                     entry = simplejson.loads(conn.read())
                 finally:
                     conn.close()
-            if entry[0] != 'Nothing found.':
+            if entry != [u'Nothing found.']:
                 cache.set(c_key, entry, 85000)
         return entry
 
