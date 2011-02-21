@@ -210,6 +210,13 @@ body{
 	padding:0 20px 20px;
 	text-shadow:1px 1px 0 #000;
 }
+.js body{
+	opacity:0;
+}
+.js.wf-active body{
+	-webkit-transition:0.2s linear opacity;
+	opacity:1;
+}
 h1, #mast-head a{
 	font-family:p22-underground-1,p22-underground-2,helvetica,arial,sans-serif;
 	font-size:2.6em;
@@ -226,7 +233,7 @@ h1, #mast-head a{
 	line-height:120px;
 	padding:20px 0 0 50px;
 	margin:0 0 7px;
-	background:url(/static/images/oscar.png) no-repeat left 18px;
+	background:url(/static/images/oscar.png) no-repeat left 10px;
 }
 section h1{
 	font-size:2em;
@@ -240,7 +247,7 @@ section h1{
 	padding-bottom:11px;
 	padding-left:30px;
 	color:#fff;
-	background:url(/static/images/oscar_small.png) no-repeat left 10px;
+	background:url(/static/images/oscar_small.png) no-repeat left 6px;
 }
 p{
 	padding-top:6px;

@@ -28,6 +28,9 @@
 <body>
 	<script>
 	document.documentElement.className = document.documentElement.className.replace('no-js', 'js')
+	setTimeout(function(){
+		document.documentElement.className = document.documentElement.className+' wf-active';
+	}, 2000);
 	</script>
 	<header id="mast-head">
 		{% block mast_heading %}
@@ -44,6 +47,8 @@
 	<script src="/static/js/jquery-1.4.2.min.js"></script>
 {% block js %}
 {% endblock %}
+<script type="text/javascript" src="http://use.typekit.com/nke5pof.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-21571265-1']);
