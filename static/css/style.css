@@ -541,7 +541,10 @@ p{
 	box-shadow:2px 2px 2px rgba(0,0,0,0.4);
 	margin-bottom:20px;
 }
-.complete{
+.intro p{
+	width:auto;
+}
+.complete, .intro{
 	font-size:1.4em;
 	line-height:1.4;
 }
