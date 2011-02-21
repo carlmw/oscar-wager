@@ -412,6 +412,10 @@ a.twitter{
 }
 
 /* PICKER */
+.picker{
+	width:600px;
+	float:left;
+}
 .picker header{
 	margin-bottom:20px;
 }
@@ -467,6 +471,46 @@ a.twitter{
 }
 p{
 	width:536px;
+}
+#sidebar{
+	padding-top:14px;
+	float:left;
+}
+#sidebar ol{
+	width:260px;
+	margin:1em 0 0;
+	border:2px solid #666;
+	border-radius:8px;
+	padding:24px 20px 12px 40px;
+	-webkit-box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	-mox-box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	background-color:rgba(0,0,0,0.1);
+}
+#sidebar h1{
+	font-size:1.4em;
+	line-height:1;
+	margin-bottom:20px;
+}
+#sidebar ol img{
+	width:30px;
+	float:left;
+	margin-right:1ex;
+}
+#previous ol{
+	list-style-type:none;
+	margin:0;
+	padding:24px 40px 16px 20px;
+	margin-bottom:20px;
+}
+#previous span{
+	display:block;
+	font-weight:normal;
+}
+#sidebar ol li{
+	font-size:smaller;
+	font-weight:bold;
+	margin-bottom:8px;
 }
 /* USER LIST */
 #users ul, #overview ul{
