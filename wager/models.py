@@ -1,4 +1,4 @@
-import urllib, urllib2, uuid
+import urllib, urllib2, uuid, hashlib
 
 from django.utils import simplejson
 from django.db import models
@@ -34,7 +34,13 @@ class User(models.Model):
     def save(self):
         self.slug = slugify(self.name)
         super(User, self).save()
-
+        
+    def _gravatar_url(self):
+        email = hashlib.md5(self.email.lower()).hexdigest()
+        return 'http://www.gravatar.com/avatar/%s?size=48' % email
+        
+    gravatar_url = property(_gravatar_url)
+    
 class Award(models.Model):
     """Award model detailing the name of the award."""    
     name = models.CharField(max_length=50)

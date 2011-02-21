@@ -200,11 +200,9 @@ button {  width: auto; overflow: visible; }
  /* Primary Styles
     Author: 
  */
-html{
+body{
 	background-color:#000;
 	background:url(/static/images/bg.png) center top;
-}
-body{
 	font-family:proxima-nova-condensed-1,proxima-nova-condensed-2,helvetica,arial,sans-serif;
 	font-size:18px;
 	line-height:20px;
@@ -269,6 +267,12 @@ label, label span{
 label span{
 	margin-bottom:8px;
 }
+label em{
+	display:block;
+	margin-bottom:8px;
+	font-size:smaller;
+	color:#999;
+}
 label{
 	margin-bottom:9px;
 	cursor:pointer;
@@ -285,12 +289,18 @@ form .errors{
 #overview ul{
 	margin:0;
 	list-style-type:none;
+	float:left;
 }
 #overview li{
-	float:left;
 	width:340px;
+	float:left;
 	margin-right:20px;
 	margin-bottom:20px;
+}
+#overview li img{
+	float:left;
+	width:30px;
+	margin-right:1ex;
 }
 #overview li strong, #overview span{
 	display:block;
@@ -402,6 +412,10 @@ a.twitter{
 }
 
 /* PICKER */
+.picker{
+	width:600px;
+	float:left;
+}
 .picker header{
 	margin-bottom:20px;
 }
@@ -454,6 +468,85 @@ a.twitter{
 }
 .disclaimer{
 	color:#666;
+}
+p{
+	width:536px;
+}
+#sidebar{
+	padding-top:14px;
+	float:left;
+}
+#sidebar ol{
+	width:260px;
+	margin:1em 0 0;
+	border:2px solid #666;
+	border-radius:8px;
+	padding:24px 20px 12px 40px;
+	-webkit-box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	-mox-box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	background-color:rgba(0,0,0,0.1);
+}
+#sidebar h1{
+	font-size:1.4em;
+	line-height:1;
+	margin-bottom:20px;
+}
+#sidebar ol img{
+	width:30px;
+	float:left;
+	margin-right:1ex;
+}
+#previous ol{
+	list-style-type:none;
+	margin:0;
+	padding:24px 40px 16px 20px;
+	margin-bottom:20px;
+}
+#previous span{
+	display:block;
+	font-weight:normal;
+}
+#sidebar ol li{
+	font-size:smaller;
+	font-weight:bold;
+	margin-bottom:8px;
+}
+/* USER LIST */
+#users ul, #overview ul{
+	list-style:none;
+	margin:1em 0 0;
+	border:2px solid #666;
+	border-radius:8px;
+	padding:24px 20px 0;
+	-webkit-box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	-mox-box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	box-shadow:inset 4px 4px 4px rgba(0,0,0,0.2);
+	background-color:rgba(0,0,0,0.1);
+	width:536px;
+}
+#users ul{
+	font-size:1.4em;
+	line-height:48px;
+}
+#users li{
+	clear:left;
+	margin-bottom:20px;
+}
+#users img{
+	float:left;
+	margin-right:1ex;
+	-webkit-box-shadow:2px 2px 2px rgba(0,0,0,0.4);
+	-moz-box-shadow:2px 2px 2px rgba(0,0,0,0.4);
+	box-shadow:2px 2px 2px rgba(0,0,0,0.4);
+	margin-bottom:20px;
+}
+.complete{
+	font-size:1.4em;
+	line-height:1.4;
+}
+.next-step{
+	font-weight:bold;
 }
 /* 
  * print styles

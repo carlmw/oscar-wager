@@ -360,7 +360,7 @@
 	"model": "wager.Entry",
 	"fields": {
 		"award": 5,
-		"name": "The Illusioninst",
+		"name": "The Illusionist",
 		"reference": "Sylvain Chomet"
 	}
 },
