@@ -49,14 +49,51 @@ class Entry(models.Model):
     """Entry model detailing the name of the entry(film, actor) 
        and a reference of where/why nominated(film, director)."""
     name = models.CharField(max_length=50)
-    type = models.CharField(max_length=50)
     award = models.ForeignKey(Award, related_name='entries')
     reference = models.CharField(max_length=50, null=True)
     
     def getPoster(self):
         """Retrieves the poster image for the entry film."""
-        data = entry_cache_get(self.name, self.reference)
-        return data[0]['posters'][3]['image']['url'] if len(data) > 0 and data[0].has_key('posters') and len(data[0]['posters']) > 2 else ''
+        data = self.getCachedEntry()
+        if len(data) > 0 and data[0].has_key('posters') and len(data[0]['posters']) > 2:
+            return data[0]['posters'][3]['image']['url']
+        elif len(data) > 0 and data[0].has_key('profile') and len(data[0]['profile']) > 2:
+            return data[0]['profile'][1]['image']['url']
+        elif len(data) > 1 and data[1].has_key('profile') and len(data[1]['profile']) > 2:
+            return data[1]['profile'][1]['image']['url']
+        else: ''
+        
+    def storeCachedEntry(self):
+        """ Builds a key for caching an entry."""
+        return slugify(self.name)+"entry"
+
+    def getCachedEntry(self):
+        """ Gets a key for caching an entry."""
+        c_key = self.storeCachedEntry()
+        entry = cache.get(c_key)
+        if entry == None:
+            import re
+            url = 'http://api.themoviedb.org'
+            key = '31978081436f3021d35a3275c385491b'
+            title = urllib.quote(self.name.encode("utf-8"))
+            try:
+                if re.search('Actor|Actress', self.award.name):
+                    conn = urllib2.urlopen('%s/2.1/Person.search/en/json/%s/%s' % (url, key, title))
+                else:
+                    conn = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s+2010' % (url, key, title))
+                entry = simplejson.loads(conn.read())
+            finally:
+                conn.close()
+            if entry[0] == 'Nothing found.':
+                ref = urllib.quote(self.reference.encode("utf-8"))
+                conn = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s+2010' % (url, key, ref))
+                try:
+                    entry = simplejson.loads(conn.read())
+                finally:
+                    conn.close()
+            if entry[0] != 'Nothing found.':
+                cache.set(c_key, entry, 85000)
+        return entry
 
 class Pick(models.Model):
     """Pick model detailing the selection of votes made against a user for a wager."""
@@ -66,30 +103,3 @@ class Pick(models.Model):
     
     class Meta:
         unique_together = ('entry', 'wager', 'user',)
-    
-def entry_cache_key(name):
-    """ Builds a key for caching an entry."""
-    return slugify(name)+"entry"
-
-def entry_cache_get(name, reference):
-    """ Gets a key for caching an entry."""
-    c_key = entry_cache_key(name)
-    entry = cache.get(c_key)
-    if entry == None:
-        url = 'http://api.themoviedb.org'
-        key = '31978081436f3021d35a3275c385491b'
-        title = urllib.quote(name.encode("utf-8"))
-        conn  = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s+2010' % (url, key, title))
-        try:
-            entry = simplejson.loads(conn.read())
-        finally:
-            conn.close()
-        if len(entry) == 0:
-            ref = urllib.quote(reference.encode("utf-8"))
-            conn = urllib2.urlopen('%s/2.1/Movie.search/en/json/%s/%s+2010' % (url, key, ref))
-            try:
-                entry = simplejson.loads(conn.read())
-            finally:
-                conn.close()
-        cache.set(c_key, entry, 85000)
-    return entry
