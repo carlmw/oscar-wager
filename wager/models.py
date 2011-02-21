@@ -1,5 +1,6 @@
-import simplejson, urllib, urllib2, uuid
+import urllib, urllib2, uuid
 
+from django.utils import simplejson
 from django.db import models
 from django.core.cache import cache
 from django.template.defaultfilters import slugify
@@ -53,9 +54,12 @@ class Entry(models.Model):
 
 class Pick(models.Model):
     """Pick model detailing the selection of votes made against a user for a wager."""
-    entry = models.ForeignKey(Entry)
+    entry = models.ForeignKey(Entry, related_name='picks')
     wager = models.ForeignKey(Wager)
     user = models.ForeignKey(User, related_name='picks')
+    
+    class Meta:
+        unique_together = ('entry', 'wager', 'user',)
     
 def entry_cache_key(name):
     """ Builds a key for caching an entry."""
