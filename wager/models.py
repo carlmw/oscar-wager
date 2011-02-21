@@ -75,7 +75,11 @@ class Entry(models.Model):
             import re
             url = 'http://api.themoviedb.org'
             key = '31978081436f3021d35a3275c385491b'
-            title = urllib.quote(self.name.encode("utf-8"))
+            chk = re.search('.*"(.*)"', self.name)
+            if chk > 0:
+                title = urllib.quote(chk.group(1).encode("utf-8"))
+            else:
+                title = urllib.quote(self.name.encode("utf-8"))
             try:
                 if re.search('Actor|Actress', self.award.name):
                     conn = urllib2.urlopen('%s/2.1/Person.search/en/json/%s/%s' % (url, key, title))
