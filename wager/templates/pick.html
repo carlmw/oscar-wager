@@ -52,11 +52,9 @@
 	    <ol>
 	        {% for award, pick in user_picks %}
 	        <li>
-	            <a href="/{{ wager.slug }}/pick/{{ user.slug }}/{{ user.hash }}/{{ pick.id }}/">
                 <img src="{% firstof pick.getPoster '/static/images/oscar-statue.png' %}" width="100" />
         		<span>{{ award.name }}</span>
         		<strong>{{ pick.name }}</strong>
-        		</a>
 	    	</li>
 	        {% endfor %}
 	    </ol>
