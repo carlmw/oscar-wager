@@ -611,10 +611,10 @@ p{
 body{
 	padding:10px;
 }
-  form{
+  form, #users ul, #overview ul, #sidebar ol, #page-footer p, p, .picker{
 	width:85%;
   }
-  input[type=text], input[type=email]{
+  input[type=text], input[type=email], textarea{
 	width:100%;
   }
 }
