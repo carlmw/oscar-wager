@@ -10,34 +10,7 @@
 <p>Play for money, forfeit or just pride. Make your predictions for the winners in the 24 categories.</p>
 </div>
 <section>
-	<h1>Create a wager</h1>
-	<form method="post">
-		<label>
-			<span>What's it called? <strong>(required)</strong></span>
-			<em>Give it a name your friends will recognise</em>
-			<input type="text" name="name" placeholder="E.g. Initech Office Wager" />
-		</label>
-		{% if wager_form.name.errors %}
-		<ul class="errors">
-		    {% for error in wager_form.name.errors %}
-		    <li>{{ error|escape }}</li>
-		    {% endfor %}
-	    </ul>
-		{% endif %}
-		<label>
-	        <span>What's at stake?</span>
-	        <textarea name="description" placeholder="Money?, Beer?, Your immortal soul?"></textarea>
-	    </label>
-	    {% if wager_form.description.errors %}
-	    <ul class="errors">
-	        {% for error  in wager_form.descriptions.errors %}
-	        <li>{{ error|escape }}</li>
-	        {% endfor %}
-	    </ul>
-	    {% endif %}
-		<div class="actions">
-			<button type="submit">Start your wager</button>
-		</div>
-	</form>
+	<h1>The Awards have started!</h1>
+	<p>We plan to run further wagers in the future. Follow us at <a href="http://twitter.com/wagerapp">@wagerapp</a> to find out more!</p>
 </section>
 {% endblock %}
