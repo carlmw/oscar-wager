@@ -1,5 +1,5 @@
 application: oscar-wager
-version: 6
+version: 6-closed
 runtime: python
 api_version: 1
 
