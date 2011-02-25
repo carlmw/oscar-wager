@@ -389,7 +389,8 @@
 	"fields": {
 		"award": 6,
 		"name": "Harry Potter and the Deathly Hallows Part 1",
-		"reference": "Production Design: Stuart Craig; Set Decoration: Stephenie McMillan"
+		"reference": "Production Design: Stuart Craig; Set Decoration: Stephenie McMillan",
+		"winner": 1
 	}
 },
 {
@@ -470,7 +471,8 @@
 	"fields": {
 		"award": 8,
 		"name": "Alice in Wonderland",
-		"reference": "Colleen Atwood"
+		"reference": "Colleen Atwood",
+		"winner": 1
 	}
 },
 {
@@ -488,7 +490,8 @@
 	"fields": {
 		"award": 8,
 		"name": "The King's Speech",
-		"reference": "Jenny Beavan"
+		"reference": "Jenny Beavan",
+		"winner": 1
 	}
 },
 {
@@ -506,7 +509,8 @@
 	"fields": {
 		"award": 8,
 		"name": "True Grit",
-		"reference": "Mary Zophres"
+		"reference": "Mary Zophres",
+		"winner": 1
 	}
 },
 {
@@ -533,7 +537,8 @@
 	"fields": {
 		"award": 9,
 		"name": "The King's Speech",
-		"reference": "Tom Hooper"
+		"reference": "Tom Hooper",
+		"winner": 1
 	}
 },
 {
@@ -542,7 +547,8 @@
 	"fields": {
 		"award": 9,
 		"name": "The Social Network",
-		"reference": "David Fincher"
+		"reference": "David Fincher",
+		"winner": 1
 	}
 },
 {
@@ -569,7 +575,8 @@
 	"fields": {
 		"award": 10,
 		"name": "Gasland",
-		"reference": "Josh Fox and Trish Adlesic"
+		"reference": "Josh Fox and Trish Adlesic",
+		"winner": 1
 	}
 },
 {
@@ -587,7 +594,8 @@
 	"fields": {
 		"award": 10,
 		"name": "Restrepo",
-		"reference": "Tim Hetherington and Sebastian Junger"
+		"reference": "Tim Hetherington and Sebastian Junger",
+		"winner": 1
 	}
 },
 {
@@ -596,7 +604,8 @@
 	"fields": {
 		"award": 10,
 		"name": "Waste Land",
-		"reference": "Lucy Walker and Angus Aynsley"
+		"reference": "Lucy Walker and Angus Aynsley",
+		"winner": 1
 	}
 },
 {
@@ -605,7 +614,8 @@
 	"fields": {
 		"award": 11,
 		"name": "Killing in the Name",
-		"reference": "Jed Rothstein"
+		"reference": "Jed Rothstein",
+		"winner": 1
 	}
 },
 {
@@ -614,7 +624,8 @@
 	"fields": {
 		"award": 11,
 		"name": "Poster Girl",
-		"reference": "Sara Nesson and Mitchell W. Block"
+		"reference": "Sara Nesson and Mitchell W. Block",
+		"winner": 1
 	}
 },
 {
@@ -632,7 +643,8 @@
 	"fields": {
 		"award": 11,
 		"name": "Sun Come Up",
-		"reference": "Jennifer Redfearn and Tim Metzger"
+		"reference": "Jennifer Redfearn and Tim Metzger",
+		"winner": 1
 	}
 },
 {
@@ -650,7 +662,8 @@
 	"fields": {
 		"award": 12,
 		"name": "Black Swan",
-		"reference": "Andrew Weisblum"
+		"reference": "Andrew Weisblum",
+		"winner": 1
 	}
 },
 {
@@ -668,7 +681,8 @@
 	"fields": {
 		"award": 12,
 		"name": "The King's Speech",
-		"reference": "Tariq Anwar"
+		"reference": "Tariq Anwar",
+		"winner": 1
 	}
 },
 {
@@ -677,7 +691,8 @@
 	"fields": {
 		"award": 12,
 		"name": "127 Hours",
-		"reference": "Jon Harris"
+		"reference": "Jon Harris",
+		"winner": 1
 	}
 },
 {
@@ -695,7 +710,8 @@
 	"fields": {
 		"award": 13,
 		"name": "Biutiful",
-		"reference": "Mexico"
+		"reference": "Mexico",
+		"winner": 1
 	}
 },
 {
@@ -713,7 +729,8 @@
 	"fields": {
 		"award": 13,
 		"name": "In a Better World",
-		"reference": "Denmark"
+		"reference": "Denmark",
+		"winner": 1
 	}
 },
 {
@@ -731,7 +748,8 @@
 	"fields": {
 		"award": 13,
 		"name": "Outside the Law (Hors-la-loi)",
-		"reference": "Algeria"
+		"reference": "Algeria",
+		"winner": 1
 	}
 },
 {
@@ -749,7 +767,8 @@
 	"fields": {
 		"award": 14,
 		"name": "The Way Back",
-		"reference": "Edouard F. Henriques"
+		"reference": "Edouard F. Henriques",
+		"winner": 1
 	}
 },
 {
@@ -758,7 +777,8 @@
 	"fields": {
 		"award": 14,
 		"name": "The Wolfman",
-		"reference": "Rick Baker and Dave Elsey"
+		"reference": "Rick Baker and Dave Elsey",
+		"winner": 1
 	}
 },
 {
@@ -776,7 +796,8 @@
 	"fields": {
 		"award": 15,
 		"name": "Inception",
-		"reference": "Hans Zimmer"
+		"reference": "Hans Zimmer",
+		"winner": 1
 	}
 },
 {
@@ -812,7 +833,8 @@
 	"fields": {
 		"award": 16,
 		"name": "\"Coming Home\" from \"Country Strong\"",
-		"reference": "Music and Lyric by Tom Douglas"
+		"reference": "Music and Lyric by Tom Douglas",
+		"winner": 1
 	}
 },
 {
@@ -821,7 +843,8 @@
 	"fields": {
 		"award": 16,
 		"name": "\"I See the Light\" from \"Tangled\"",
-		"reference": "Music by Alan Menken Lyric by Glenn Slater"
+		"reference": "Music by Alan Menken Lyric by Glenn Slater",
+		"winner": 1
 	}
 },
 {
@@ -848,7 +871,8 @@
 	"fields": {
 		"award": 17,
 		"name": "Black Swan",
-		"reference": "Mike Medavoy"
+		"reference": "Mike Medavoy",
+		"winner": 1
 	}
 },
 {
@@ -857,7 +881,8 @@
 	"fields": {
 		"award": 17,
 		"name": "The Fighter",
-		"reference": "David Hoberman"
+		"reference": "David Hoberman",
+		"winner": 1
 	}
 },
 {
@@ -875,7 +900,8 @@
 	"fields": {
 		"award": 17,
 		"name": "The Kids Are All Right",
-		"reference": "Gary Gilbert"
+		"reference": "Gary Gilbert",
+		"winner": 1
 	}
 },
 {
@@ -902,7 +928,8 @@
 	"fields": {
 		"award": 17,
 		"name": "The Social Network",
-		"reference": "Scott Rudin"
+		"reference": "Scott Rudin",
+		"winner": 1
 	}
 },
 {
@@ -929,7 +956,8 @@
 	"fields": {
 		"award": 17,
 		"name": "Winter's Bone",
-		"reference": "Anne Rosellini and Alix Madigan-Yorkin"
+		"reference": "Anne Rosellini and Alix Madigan-Yorkin",
+		"winner": 1
 	}
 },
 {
@@ -947,7 +975,8 @@
 	"fields": {
 		"award": 18,
 		"name": "The Gruffalo",
-		"reference": "Jakob Schuh and Max Lang"
+		"reference": "Jakob Schuh and Max Lang",
+		"winner": 1
 	}
 },
 {
@@ -974,7 +1003,8 @@
 	"fields": {
 		"award": 18,
 		"name": "Madagascar",
-		"reference": " carnet de voyage (Madagascar"
+		"reference": " carnet de voyage (Madagascar",
+		"winner": 1
 	}
 },
 {
@@ -992,7 +1022,8 @@
 	"fields": {
 		"award": 19,
 		"name": "The Crush",
-		"reference": "Michael Creagh"
+		"reference": "Michael Creagh",
+		"winner": 1
 	}
 },
 {
@@ -1001,7 +1032,8 @@
 	"fields": {
 		"award": 19,
 		"name": "God of Love",
-		"reference": "Luke Matheny"
+		"reference": "Luke Matheny",
+		"winner": 1
 	}
 },
 {
@@ -1019,7 +1051,8 @@
 	"fields": {
 		"award": 19,
 		"name": "Wish 143",
-		"reference": "Ian Barnes and Samantha Waite"
+		"reference": "Ian Barnes and Samantha Waite",
+		"winner": 1
 	}
 },
 {
@@ -1046,7 +1079,8 @@
 	"fields": {
 		"award": 20,
 		"name": "Tron: Legacy",
-		"reference": "Gwendolyn Yates Whittle and Addison Teague"
+		"reference": "Gwendolyn Yates Whittle and Addison Teague",
+		"winner": 1
 	}
 },
 {
@@ -1064,7 +1098,8 @@
 	"fields": {
 		"award": 20,
 		"name": "Unstoppable",
-		"reference": "Mark P. Stoeckinger"
+		"reference": "Mark P. Stoeckinger",
+		"winner": 1
 	}
 },
 {
@@ -1073,7 +1108,8 @@
 	"fields": {
 		"award": 21,
 		"name": "Inception",
-		"reference": "Lora Hirschberg"
+		"reference": "Lora Hirschberg",
+		"winner": 1
 	}
 },
 {
@@ -1100,7 +1136,8 @@
 	"fields": {
 		"award": 21,
 		"name": "The Social Network",
-		"reference": "Ren Klyce"
+		"reference": "Ren Klyce",
+		"winner": 1
 	}
 },
 {
@@ -1109,7 +1146,8 @@
 	"fields": {
 		"award": 21,
 		"name": "True Grit",
-		"reference": "Skip Lievsay"
+		"reference": "Skip Lievsay",
+		"winner": 1
 	}
 },
 {
@@ -1145,7 +1183,8 @@
 	"fields": {
 		"award": 22,
 		"name": "Inception",
-		"reference": "Paul Franklin"
+		"reference": "Paul Franklin",
+		"winner": 1
 	}
 },
 {
@@ -1154,7 +1193,8 @@
 	"fields": {
 		"award": 22,
 		"name": "Iron Man 2",
-		"reference": "Janek Sirrs"
+		"reference": "Janek Sirrs",
+		"winner": 1
 	}
 },
 {
@@ -1172,7 +1212,8 @@
 	"fields": {
 		"award": 23,
 		"name": "The Social Network",
-		"reference": "Screenplay by Aaron Sorkin"
+		"reference": "Screenplay by Aaron Sorkin",
+		"winner": 1
 	}
 },
 {
@@ -1181,7 +1222,8 @@
 	"fields": {
 		"award": 23,
 		"name": "Toy Story 3",
-		"reference": "Screenplay by Michael Arndt; Story by John Lasseter"
+		"reference": "Screenplay by Michael Arndt; Story by John Lasseter",
+		"winner": 1
 	}
 },
 {
@@ -1217,7 +1259,8 @@
 	"fields": {
 		"award": 24,
 		"name": "The Fighter",
-		"reference": "Screenplay by Scott Silver and Paul Tamasy & Eric Johnson; Story by Keith Dorrington & Paul Tamasy & Eric Johnson"
+		"reference": "Screenplay by Scott Silver and Paul Tamasy & Eric Johnson; Story by Keith Dorrington & Paul Tamasy & Eric Johnson",
+		"winner": 1
 	}
 },
 {
@@ -1244,6 +1287,7 @@
 	"fields": {
 		"award": 24,
 		"name": "The King's Speech",
-		"reference": "Screenplay by David Seidler"
+		"reference": "Screenplay by David Seidler",
+		"winner": 1
 	}
 }]

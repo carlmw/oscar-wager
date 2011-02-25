@@ -21,6 +21,7 @@ def wager(request, slug):
     wager = get_object_or_404(Wager, slug=slug)
     wager_users = [(user.points, i, user) for i, user in enumerate(wager.users.all())]
     users = [user for points, i, user in wager_users]
+    users.reverse()
     
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
