@@ -226,7 +226,8 @@
 	"fields": {
 		"award": 2,
 		"name": "John Hawkes",
-		"reference": "Winter's Bone"
+		"reference": "Winter's Bone",
+		"winner": 1
 	}
 },
 {

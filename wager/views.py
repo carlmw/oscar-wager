@@ -19,7 +19,9 @@ def index(request):
     
 def wager(request, slug):
     wager = get_object_or_404(Wager, slug=slug)
-    users = wager.users.all()
+    wager_users = [(user.points, i, user) for i, user in enumerate(wager.users.all())]
+    users = [user for points, i, user in wager_users]
+    
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
         if user_form.is_valid():

@@ -41,6 +41,17 @@ class User(models.Model):
         
     gravatar_url = property(_gravatar_url)
     
+    def _points(self):
+        picks = self.picks.all()
+        total = 0
+        for pick in picks:
+            if pick.entry.winner:
+                total = total + 1
+        
+        return total
+        
+    points = property(_points)
+    
 class Award(models.Model):
     """Award model detailing the name of the award."""    
     name = models.CharField(max_length=50)
@@ -51,6 +62,7 @@ class Entry(models.Model):
     name = models.CharField(max_length=50)
     award = models.ForeignKey(Award, related_name='entries')
     reference = models.CharField(max_length=50, null=True)
+    winner = models.BooleanField(default=False)
     
     def getPoster(self):
         """Retrieves the poster image for the entry film."""
