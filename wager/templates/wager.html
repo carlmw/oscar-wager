@@ -7,20 +7,10 @@
 {% if wager.description %}
 <p>{{ wager.description }}</p>
 {% endif %}
-<section id="invite">
-	<h1>Invite a friend</h1>
-	<div class="instructions">
-		<p>Send your friends a link to this page and they'll be able to join this wager!</p>
-	</div>
-	<div class="slug">http://{{ ROOT_URL }}/{{ wager.slug }}</div>
-	<nav>
-		<a title="Share on Twitter" href="http://twitter.com/share?url=http%3A%2F%2F{{ ROOT_URL }}%2F{{ wager.slug }}%2F&amp;text=Join%20my%20Oscar%20wager!" class="twitter button">Share <span class="visuallyhidden">it on twitter</span></a>
-	</nav>
-</section>
 <section id="users">
 	<h1>Who's in?</h1>
 	{% if not users %}
-	<p>It looks like no one has joined your wager yet! You can invite them by sending them the link above.</p>
+	<p>So no one joined your wager? That sucks.</p>
 	{% endif %}
 	{% if users %}
 		<ul id="users">
@@ -33,40 +23,5 @@
 		</ul>
 	</section>
 	{% endif %}
-</section>
-<section id="wager">
-	<h1>Enter the wager</h1>
-	<div class="instructions">
-		<p>After entering your name you'll be asked to make your predictions for the winners in the 24 award categories.</p>
-	</div>
-	<form method="post">
-		<label>
-			<span>Your name <strong>(required)</strong></span>
-			<input type="text" name="name" placeholder="E.g. Charlie Chaplin"/>
-		</label>
-		{% if user_form.name.errors %}
-		<ul class="errors">
-		    {% for error in user_form.name.errors %}
-		    <li>
-		        {{ error|escape}}
-		    </li>
-		    {% endfor %}
-		</ul>
-		{% endif %}
-		<label>
-			<span>Your email address <strong>(required)</strong></span>
-			<input type="text" name="email" placeholder="E.g. charlie@chaplin.com" />
-		</label>
-		{% if user_form.email.errors %}
-		<ul class="errors">
-		    {% for error in user_form.email.errors %}
-		    <li>
-		        {{ error|escape}}
-		    </li>
-		    {% endfor %}
-		</ul>
-		{% endif %}
-		<button type="submit">Pick your winners</button>
-	</form>
 </section>
 {% endblock %}

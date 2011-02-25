@@ -107,6 +107,9 @@ class Pick(models.Model):
     
     class Meta:
         unique_together = ('entry', 'wager', 'user',)
+        
+    def save():
+        pass
     
 def entry_cache_key(name):
     """ Builds a key for caching an entry."""

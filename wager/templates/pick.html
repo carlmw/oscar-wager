@@ -8,67 +8,8 @@
 
 {% block content %}
 <h1>{{ wager.name }}</h1>
-<div class="instructions">
-	<p>Make your prediction for the following category:</p>
-</div>
-<section class="picker">
-	<header>
-		<h1>{{ award.name }}</h1>
-		<h2><b>Category</b> {{ picked_total }} <b>of</b> {{ awards_total }}</h2>
-	</header>
-	<form method="post">
-		<ul>
-		    {% for entry in entries %}
-			<li>
-				<label>
-					<input type="radio" name="winner" value="{{ entry.id }}" />
-					<img src="{% firstof entry.getPoster '/static/images/oscar-statue.png' %}" />
-					<strong>{{ entry.name }}</strong>
-					{% if entry.reference %}
-					<span>{{ entry.reference }}</span>
-					{% endif %}
-				</label>
-			</li>
-			{% endfor %}
-		</ul>
-		{% if pick_form.entry.errors %}
-		<ul>
-		    {% for error in pick_form.entry.errors %}
-		    <li class="errors">
-		        {{ error|escape }}
-		    </li>
-		    {% endfor %}
-		</ul>
-		{% endif %}
-		<div class="actions">
-			<button type="submit">Next</button>
-		</div>
-	</form>
+<section>
+	<h1>Sorry!</h1>
+	<p>The awards have started!</p>
 </section>
-<div id="sidebar">
-    {% if user_picks %}
-	<aside id="previous">
-	    <h1>Your picks</h1>
-	    <ol>
-	        {% for award, pick in user_picks %}
-	        <li>
-                <img src="{% firstof pick.getPoster '/static/images/oscar-statue.png' %}" width="100" />
-        		<span>{{ award.name }}</span>
-        		<strong>{{ pick.name }}</strong>
-	    	</li>
-	        {% endfor %}
-	    </ol>
-	</aside>
-    {% endif %}
-    {% if not_picked_awards %}
-	<aside id="next">
-    	<h1>Coming up</h1>
-	    <ol>
-	        {% for not_picked_award in not_picked_awards %}
-	        <li>{{ not_picked_award.name }}</li>
-	        {% endfor %}
-	    </ol>
-	</aside>
-    {% endif %}
-</div>
 {% endblock %}
